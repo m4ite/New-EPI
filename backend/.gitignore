@@ -1,0 +1,14 @@
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Dependências do Node.js
+node_modules/
+
+# Arquivos de log
+*.log
+
+# Arquivos de build ou produção
+/build/
+/dist/
+*.min.js
