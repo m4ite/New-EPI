@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    background-color: #467FEF;
+    height: 100vh;
+}
+
+.container{
+    background-color: white;
+    border-radius: 20;
+}
+
+.supergraphic{
+    background-image: url("./supergraphic.svg");
+    height: 15px;
+    width: 100%;
+}
+
+.logo{
+    background-image: url("./logo.svg");
+    height: 100px;
+}
+
+.logo{
+    background-image: url("./logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
