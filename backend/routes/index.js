@@ -1,9 +1,9 @@
 const bodyParser = require('body-parser');
-const person = require('./person');
+const user = require('./user');
 
 module.exports = (app) => {
     app.use(
         bodyParser.json(),
-        person
+        user
     )
 }
