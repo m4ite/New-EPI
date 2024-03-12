@@ -1,8 +1,12 @@
-const express = require('express');
-// const router = require('./routes');
+const express = require("express")
+const userRoutes = require("./routes/users.js")
+const cors = require("cors")
 
-const app = express();
+const app = express()
 
-const port = 8080;
-const server = app.listen(port, () => console.log(`Listening at port http://localhost:${port}`));
-module.exports = server;
+app.use(express.json())
+app.use(cors())
+
+app.use("/", userRoutes)
+
+app.listen(8080)
