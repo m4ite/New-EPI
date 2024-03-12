@@ -1,7 +1,32 @@
-function Home(){
-    return(
+import Nav from "../../components/nav"
+import Footer from "../../components/footer"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapLocationDot, faMagnifyingGlass, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import "./style.css"
+
+function Home() {
+    return (
         <>
-        home
+            <Nav />
+            <div className="buttons">
+                <a href="Map" className="button">
+                    <FontAwesomeIcon icon={faMapLocationDot}/>
+                    <p>Mapa</p>
+                </a>
+
+                <a href="SearchEPI" className="button">
+                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    <p>Buscar EPI</p>
+                </a>
+
+
+                <a href="Removes" className="button">
+                    <FontAwesomeIcon icon={faClockRotateLeft}/>
+                    <p>Retiradas</p>
+                </a>
+            </div>
+
+            <Footer />
         </>
     )
 }

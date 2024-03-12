@@ -1,0 +1,32 @@
+.supergraphic {
+    background-image: url("./supergraphic.svg");
+    height: 25px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    background-image: url("./logo.svg");
+    height: 100px;
+    width: 30%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.line{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 30px;
+    padding-inline: 3em;
+}

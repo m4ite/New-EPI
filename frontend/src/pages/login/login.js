@@ -6,13 +6,15 @@ function Login(){
                 <div className="supergraphic"/>
                 <div className="logo"/>
 
+                <div className="forms">
                 <p className="Label">Username</p>
                 <input></input>
 
                 <p className="Label">Password</p>
                 <input></input>
-
-                <div><button>Login</button></div>
+                
+                </div>
+                <a href="/Home"><button>Login</button></a>             
             </div>
         </div>
     )

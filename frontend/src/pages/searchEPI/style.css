@@ -1,0 +1,17 @@
+.square{
+    background-color: #EAEAEA;
+    border-radius: "1em";
+    width: 40%;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 2em;
+}
+
+.t{
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+
+}
