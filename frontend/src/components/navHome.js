@@ -1,17 +1,17 @@
 import "./style.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-function Nav() {
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+function NavHome() {
     return (
         <>
             <div className="supergraphic"></div>
             <div className="line">
-            <a href="/Home"><FontAwesomeIcon icon={faAngleLeft} id="icon"/></a>
+                <a href="/"><FontAwesomeIcon icon={faArrowRightFromBracket} id="icon"/></a>
                 <div className="logo"></div>
-                <div></div>
+                <p>Olá, Fulano!</p>
             </div>
         </>
     )
 }
 
-export default Nav
+export default NavHome

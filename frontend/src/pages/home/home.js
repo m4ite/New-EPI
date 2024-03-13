@@ -1,4 +1,4 @@
-import Nav from "../../components/nav"
+import NavHome from "../../components/navHome"
 import Footer from "../../components/footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapLocationDot, faMagnifyingGlass, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
@@ -7,14 +7,14 @@ import "./style.css"
 function Home() {
     return (
         <>
-            <Nav />
+            <NavHome />
             <div className="buttons">
                 <a href="Map" className="button">
                     <FontAwesomeIcon icon={faMapLocationDot}/>
                     <p>Mapa</p>
                 </a>
 
-                <a href="SearchEPI" className="button">
+                <a href="Search" className="button">
                     <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     <p>Buscar EPI</p>
                 </a>

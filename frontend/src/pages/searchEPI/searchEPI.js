@@ -21,6 +21,8 @@ function SearchEPI() {
 
                 <Select options={options} />
 
+                <a className="button">Buscar</a>
+
             </div>
 
 

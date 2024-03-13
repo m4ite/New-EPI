@@ -1,0 +1,32 @@
+table{
+    margin: 0 auto;
+    width: 70%;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid rgb(116, 116, 116);
+
+}
+
+thead tr{
+    line-height: 2.5em;
+    border-bottom: 1px solid rgb(116, 116, 116);
+}
+
+tbody tr{
+    border-bottom: 1px solid rgb(116, 116, 116);
+    line-height: 2.5em;
+
+}
+
+.filter{
+    background-color: transparent;
+    border: none;
+    color: rgb(116, 116, 116);
+}
+
+.filter:hover{
+    color: black;
+    background-color: transparent;
+    border: none;
+}
