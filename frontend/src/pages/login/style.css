@@ -41,7 +41,7 @@
 }
 
 
-button {
+.butt {
     padding-inline: 1em;
     padding-block: .5em;
     background-color: white;
@@ -57,7 +57,7 @@ button {
     font-weight: bolder;
 }
 
-button:hover{
+.butt:hover{
     background-color: #a0a0a0;
 }
 

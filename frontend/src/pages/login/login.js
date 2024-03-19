@@ -14,7 +14,7 @@ function Login(){
                 <input></input>
                 
                 </div>
-                <a href="/Home"><button>Login</button></a>             
+                <a href="/Home"><button className="butt">Login</button></a>             
             </div>
         </div>
     )
