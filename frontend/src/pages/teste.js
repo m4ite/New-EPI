@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
+import { Modal, Button, ButtonToolbar, Placeholder } from 'rsuite';
+import { useState } from 'react';
+function Teste() {
 
-function Teste  {
   const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
-    <div>
-      <button onClick={onOpenModal}>Open modal</button>
-      <Modal open={open} onClose={onCloseModal} center>
-        <h2>Simple centered modal</h2>
-      </Modal>
-    </div>
-  );
-};
+    <>
+      <ButtonToolbar>
+        <Button onClick={handleOpen}> Open</Button>
+      </ButtonToolbar>
 
-export function Teste
+      <Modal open={open} onClose={handleClose}>
+        <Modal.Header>
+          <Modal.Title>Modal Title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Placeholder.Paragraph />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose} appearance="primary">
+            Ok
+          </Button>
+          <Button onClick={handleClose} appearance="subtle">
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  )
+}
+
+export default Teste
