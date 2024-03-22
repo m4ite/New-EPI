@@ -1,0 +1,10 @@
+.new{
+    font-size: 18px;
+    padding: .5em;
+    width: 15%;
+    justify-content: space-around;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid black;
+    float: right;
+}
