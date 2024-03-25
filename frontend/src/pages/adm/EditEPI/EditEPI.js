@@ -8,12 +8,12 @@ import newEPI from "./newEPI.png"
 
 import "./style.css"
 
-function NewEPI() {
+function EditEPI() {
 
     return (
         <>
             <Nav />
-            <p className="t">Cadastrar EPI</p>
+            <p className="t">Editar EPI</p>
             <div className="all">
                 <Form>
                     <Form.Group controlId="name">
@@ -24,7 +24,7 @@ function NewEPI() {
                         <Form.ControlLabel>Prazo para retirada <span style={{fontSize:"15px"}}>(dias)</span></Form.ControlLabel>
                         <Form.Control name="email" type="number" />
                     </Form.Group>
-                    <button className="cadastrar">Cadastrar</button>
+                    <button className="cadastrar">Salvar alterações</button>
                 </Form>
 
                 <img src={newEPI}></img>
@@ -36,4 +36,4 @@ function NewEPI() {
     )
 }
 
-export default NewEPI
+export default EditEPI

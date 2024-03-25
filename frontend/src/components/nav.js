@@ -6,7 +6,7 @@ function Nav() {
         <>
             <div className="supergraphic"></div>
             <div className="line">
-            <a href="/Home"><FontAwesomeIcon icon={faAngleLeft} id="icon"/></a>
+            <button onClick={() => window.history.back()}><FontAwesomeIcon icon={faAngleLeft} id="icon"/></button>
                 <div className="logo"></div>
                 <div></div>
             </div>
