@@ -4,7 +4,7 @@ import Footer from "../../../components/footer"
 
 import { Form, Input } from 'rsuite';
 
-import newEPI from "./newEPI.png"
+import newEPI from "./newEPI.jpg"
 
 import "./style.css"
 

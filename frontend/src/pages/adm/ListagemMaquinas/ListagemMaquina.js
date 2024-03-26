@@ -20,6 +20,12 @@ function ListagemMaquina() {
 
     const Navigate = useNavigate();
 
+    const b = {
+        code: <div style={{ float: "right" }}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+        </div>
+    }
 
     const nodes = [
         {
@@ -90,7 +96,7 @@ function ListagemMaquina() {
         <>
             <Nav />
             <div className="rec">
-            <Button className="new" href="NewEPI">
+                <Button className="new" href="NewMaquina">
                     <FontAwesomeIcon icon={faPlus} />
                     nova máquina
                 </Button>
