@@ -1,4 +1,4 @@
-import NavHome from "../../../components/navHome"
+import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
 
@@ -8,41 +8,61 @@ import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from 'rsuite';
+import "./style.css"
+import { useNavigate } from "react-router-dom";
 
 function ListagemEPI() {
+
+    const Navigate = useNavigate();
+
     const nodes = [
         {
             id: '0',
             name: 'Luva de Latex',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15)            
+            proxima: new Date(2020, 1, 15),
+            buttons: <div style={{float: "right"}}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+        </div>
         },
         {
             id: '1',
             name: 'Protetor auricular',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15)            
+            proxima: new Date(2020, 1, 15),
+            buttons: <div style={{float: "right"}}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+        </div>
         },
         {
             id: '2',
             name: 'Óculos',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15)            
+            proxima: new Date(2020, 1, 15),
+            buttons: <div style={{float: "right"}}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+        </div>
         },
         {
             id: '3',
             name: 'Camisa manga longa',
-            ultima: new Date(2020, 1, 15),
             proxima: new Date(2020, 1, 15),
+            buttons: <div style={{float: "right"}}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+        </div>
         },
         {
             id: '4',
             name: 'Camisa manga curta',
-            ultima: new Date(2020, 1, 15),
             proxima: new Date(2020, 1, 15),
+            buttons: <div style={{float: "right"}}>
+            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+        </div>
         }
     ];
     const data = { nodes };
@@ -57,7 +77,7 @@ function ListagemEPI() {
             label: 'Proxima Retirada', renderCell: (item) =>
                 item.proxima.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', }),
         },
-        { label: ' ', renderCell: (item) => item.local },
+        { label: ' ', renderCell: (item) => item.buttons },
     ];
 
     function onPaginationChange(action, state) {
@@ -65,10 +85,10 @@ function ListagemEPI() {
     }
     return (
         <>
-            <NavHome />
+            <Nav />
             <div className="rec">
                 <Button className="new" href="NewEPI">
-                    <FontAwesomeIcon icon={faPlus}/>
+                    <FontAwesomeIcon icon={faPlus} />
                     novo EPI
                 </Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />

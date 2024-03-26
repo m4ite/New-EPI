@@ -17,7 +17,7 @@ function HomeADM() {
                     <p>EPI</p>
                 </a>
 
-                <a href="Search" className="button">
+                <a href="ListagemMaquina" className="button">
                     <img src={Maquina}></img>
                     <p>Máquina</p>
                 </a>
