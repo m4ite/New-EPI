@@ -2,6 +2,7 @@ import Footer from "../../components/footer"
 import Nav from "../../components/nav"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import Select from 'react-select'
 
 import "./style.css"
 
@@ -9,6 +10,10 @@ import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
 import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
+
+
+import { Modal, Button, DatePicker } from 'rsuite';
+import { useState } from 'react';
 
 function Removes() {
 
@@ -75,13 +80,23 @@ function Removes() {
     ];
 
 
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ]
+
     return (
         <>
             <Nav />
             <p className="t">Histórico de retiradas</p>
 
             <div className="rec">
-                <button className="filter"><FontAwesomeIcon icon={faFilter} /></button>
+                <Button className="filter" onClick={handleOpen}><FontAwesomeIcon icon={faFilter} /></Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
                 <span className="pages">
@@ -100,8 +115,28 @@ function Removes() {
                     ))}
                 </span>
             </div>
-
             <Footer />
+
+            <Modal open={open} onClose={handleClose}>
+                <Modal.Header>
+                    <Modal.Title style={{fontWeight: 700}}>Filtros</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <Modal.Title style={{marginBottom: "1em", marginTop: "2em"}}>EPI</Modal.Title>
+                <Select options={options}/>
+
+                <Modal.Title style={{marginBottom: "1em", marginTop: "2em"}}>Data Retirada:</Modal.Title>
+                <div style={{display: "flex", justifyContent: "space-around"}}> <DatePicker format="dd/MM/yyyy"/> <DatePicker format="dd/MM/yyyy"/></div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleClose} appearance="primary">
+                        Ok
+                    </Button>
+                    <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

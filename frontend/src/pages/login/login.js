@@ -26,7 +26,12 @@ function Login(){
           
           if (response.status == 200){
             sessionStorage.setItem("Usuario", JSON.stringify(response.data))
-            navigate("/Home")
+            if (response.data[0].IsAdm){
+                navigate("/HomeADM")
+            }
+            else{
+                navigate("/Home")
+            }
           }
 
           if (response.status == 404){
