@@ -1,17 +1,16 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-import "./style.scss"
-
 import { Form } from 'rsuite';
-
 
 function NewMaquina2() {
 
     return (
         <>
             <Nav />
-            <div className="t">
+            <div className={styles.t}>
                 Protetor Auricular
             </div>
             <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -23,7 +22,7 @@ function NewMaquina2() {
                 </Form>
             </div>
 
-            <div className="t">
+            <div className={styles.t}>
                 Protetor Auricular
             </div>
             <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -36,7 +35,7 @@ function NewMaquina2() {
             </div>
 
 
-            <div className="t">
+            <div className={styles.t}>
                 Protetor Auricular
             </div>
             <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -47,13 +46,10 @@ function NewMaquina2() {
                     </Form.Group>
                 </Form>
             </div>
-            <button className="cadastrar">Cadastrar</button>
-          
-
+            <button className={styles.cadastrar}>Cadastrar</button>
             <Footer />
         </>
     )
-
 }
 
 export default NewMaquina2

@@ -8,8 +8,11 @@
 
 .logo {
     background-image: url("./logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100px;
-    width: 30%;
+    width: 20%;
 }
 
 footer {
@@ -29,4 +32,9 @@ footer {
     font-weight: 600;
     font-size: 30px;
     padding-inline: 3em;
+}
+
+
+.back{
+    background-color: transparent;
 }

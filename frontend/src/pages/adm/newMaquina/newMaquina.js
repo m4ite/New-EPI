@@ -1,13 +1,14 @@
+import styles from "./style.module.css"
+
+import { useNavigate } from "react-router-dom"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-import "./style.scss"
-
-import { Form, TagPicker } from 'rsuite';
-import newMaquina from "./newMaquina.png"
+import { Form, TagPicker } from 'rsuite'
 import Select from 'react-select'
-import { useNavigate } from "react-router-dom";
 
+import newMaquina from "./newMaquina.png"
 
 function NewMaquina() {
 
@@ -28,8 +29,8 @@ function NewMaquina() {
         <>
             <Nav />
 
-            <p className="t">Cadastrar Máquina</p>
-            <div className="all">
+            <p className={styles.t}>Cadastrar Máquina</p>
+            <div className={styles.all}>
                 <Form>
                 <Form.Group controlId="email">
                         <Form.ControlLabel>Código</Form.ControlLabel>
@@ -47,7 +48,7 @@ function NewMaquina() {
                         <Form.ControlLabel>EPI</Form.ControlLabel>
                         <TagPicker data={data} style={{ width: 300 }} />
                     </Form.Group>
-                    <button className="cadastrar" onClick={() => Navigate("/NewMaquina2")}>Próximo</button>
+                    <button className={styles.cadastrar} onClick={() => Navigate("/NewMaquina2")}>Próximo</button>
                 </Form>
                 <img src={newMaquina}></img>
             </div>

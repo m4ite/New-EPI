@@ -1,9 +1,9 @@
+import styles from "./style.module.css"
+
 import Nav from "../../components/nav"
 import Footer from "../../components/footer"
-import "./style.scss"
+
 import Select from 'react-select'
-
-
 
 function SearchEPI() {
 
@@ -16,12 +16,14 @@ function SearchEPI() {
     return (
         <>
             <Nav />
-            <div className="square">
-                <p className="t">Digite o EPI desejado</p>
+            <div className={styles.square}>
+                <p className={styles.t}>Digite o EPI desejado</p>
 
-                <Select options={options} />
+                <div className={styles.select}>
+                    <Select options={options} />
+                </div>
 
-                <a className="button">Buscar</a>
+                <a className={styles.button}>Buscar</a>
 
             </div>
 

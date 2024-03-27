@@ -1,8 +1,8 @@
-import "./style.scss"
+import styles from "./style.module.css"
 function Footer(){
     return(
     <footer>
-        <div className="supergraphic"></div>
+        <div className={styles.supergraphic}></div>
     </footer>
     )
 }

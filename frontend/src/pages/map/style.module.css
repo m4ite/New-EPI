@@ -1,0 +1,13 @@
+.map{
+    width: 50%;
+    margin: auto;
+  display: block;
+}
+
+.t{
+  font-weight: 700;
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}

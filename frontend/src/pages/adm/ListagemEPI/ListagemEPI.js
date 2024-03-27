@@ -1,3 +1,5 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
@@ -9,9 +11,8 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-
 import { Button } from 'rsuite';
-import "./style.scss"
+
 import { useNavigate } from "react-router-dom";
 
 function ListagemEPI() {
@@ -24,8 +25,8 @@ function ListagemEPI() {
             name: 'Luva de Latex',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{float: "right"}}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
         </div>
         },
         {
@@ -33,8 +34,8 @@ function ListagemEPI() {
             name: 'Protetor auricular',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{float: "right"}}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
         </div>
         },
         {
@@ -42,8 +43,8 @@ function ListagemEPI() {
             name: 'Óculos',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{float: "right"}}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
         </div>
         },
         {
@@ -51,8 +52,8 @@ function ListagemEPI() {
             name: 'Camisa manga longa',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{float: "right"}}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
         </div>
         },
         {
@@ -60,8 +61,8 @@ function ListagemEPI() {
             name: 'Camisa manga curta',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{float: "right"}}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
         </div>
         }
     ];
@@ -86,14 +87,14 @@ function ListagemEPI() {
     return (
         <>
             <Nav />
-            <div className="rec">
-                <Button className="new" href="NewEPI">
+            <div className={styles.rec}>
+                <Button className={styles.new} href="NewEPI">
                     <FontAwesomeIcon icon={faPlus} />
                     novo EPI
                 </Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
-                <span className="pages">
+                <span className={styles.pages}>
                     {" "}
                     {pagination.state.getPages(data.nodes).map((_, index) => (
                         <button

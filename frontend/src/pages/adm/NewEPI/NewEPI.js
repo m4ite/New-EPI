@@ -1,20 +1,19 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-
-import { Form, Input } from 'rsuite';
+import { Form } from 'rsuite';
 
 import newEPI from "./newEPI.jpg"
-
-import "./style.scss"
 
 function NewEPI() {
 
     return (
         <>
             <Nav />
-            <p className="t">Cadastrar EPI</p>
-            <div className="all">
+            <p className={styles.t}>Cadastrar EPI</p>
+            <div className={styles.all}>
                 <Form>
                     <Form.Group controlId="name">
                         <Form.ControlLabel>Nome</Form.ControlLabel>
@@ -24,7 +23,7 @@ function NewEPI() {
                         <Form.ControlLabel>Prazo para retirada <span style={{fontSize:"15px"}}>(dias)</span></Form.ControlLabel>
                         <Form.Control name="email" type="number" />
                     </Form.Group>
-                    <button className="cadastrar">Cadastrar</button>
+                    <button className={styles.cadastrar}>Cadastrar</button>
                 </Form>
 
                 <img src={newEPI}></img>
