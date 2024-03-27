@@ -2,7 +2,7 @@ import NavHome from "../../../components/navHome"
 import Footer from "../../../components/footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHelmetSafety } from '@fortawesome/free-solid-svg-icons';
-import "./style.css"
+import "./style.scss"
 
 import Maquina from "./maquina.png"
 import Estoque from "./estoque.png"

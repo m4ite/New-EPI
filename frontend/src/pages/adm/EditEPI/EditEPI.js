@@ -6,7 +6,7 @@ import { Form, Input } from 'rsuite';
 
 import newEPI from "./newEPI.jpg"
 
-import "./style.css"
+import "./style.scss"
 
 function EditEPI() {
 

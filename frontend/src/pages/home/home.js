@@ -2,7 +2,7 @@ import NavHome from "../../components/navHome"
 import Footer from "../../components/footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapLocationDot, faMagnifyingGlass, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
-import "./style.css"
+import "./style.scss"
 
 function Home() {
     return (

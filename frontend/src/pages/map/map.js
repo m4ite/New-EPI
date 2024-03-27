@@ -1,6 +1,6 @@
 import Nav from "../../components/nav"
 import Footer from "../../components/footer"
-import "./style.css"
+import "./style.scss"
 import map from "./map.png"
 
 function Map(){

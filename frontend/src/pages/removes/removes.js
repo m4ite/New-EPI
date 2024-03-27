@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select'
 
-import "./style.css"
+import "./style.scss"
 
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";

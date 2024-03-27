@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from 'rsuite';
-import "./style.css"
+import "./style.scss"
 import { useNavigate } from "react-router-dom";
 
 function ListagemEPI() {
