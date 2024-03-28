@@ -34,15 +34,15 @@ function NewMaquina() {
                 <Form>
                 <Form.Group controlId="email">
                         <Form.ControlLabel>Código</Form.ControlLabel>
-                        <Form.Control name="email" />
+                        <Form.Control name="codigo" />
                     </Form.Group>
                     <Form.Group controlId="name">
                         <Form.ControlLabel>Barracão</Form.ControlLabel>
-                        <Select options={options1} />
+                        <Select options={options1} className={styles.select}/>
                     </Form.Group>
                     <Form.Group controlId="email">
                         <Form.ControlLabel>Prazo para retirada <span style={{ fontSize: "15px" }}>(dias)</span></Form.ControlLabel>
-                        <Form.Control name="email" type="number" />
+                        <Form.Control name="prazo" type="number" />
                     </Form.Group>
                     <Form.Group>
                         <Form.ControlLabel>EPI</Form.ControlLabel>

@@ -20,8 +20,8 @@ function ListagemMaquina() {
 
     const b = {
         code: <div style={{ float: "right" }}>
-            <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-            <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
         </div>
     }
 
@@ -31,8 +31,8 @@ function ListagemMaquina() {
             localização: 'Ct 401',
             status: "ok",
             buttons: <div style={{ float: "right" }}>
-                <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
         {
@@ -40,8 +40,8 @@ function ListagemMaquina() {
             localização: 'Ct 401',
             status: "ok",
             buttons: <div style={{ float: "right" }}>
-                <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
         {
@@ -49,8 +49,8 @@ function ListagemMaquina() {
             localização: 'Ct 401',
             status: "ok",
             buttons: <div style={{ float: "right" }}>
-                <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
         {
@@ -58,8 +58,8 @@ function ListagemMaquina() {
             localização: 'Ct 401',
             status: "ok",
             buttons: <div style={{ float: "right" }}>
-                <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
         {
@@ -67,8 +67,8 @@ function ListagemMaquina() {
             localização: 'Ct 401',
             status: "ok",
             buttons: <div style={{ float: "right" }}>
-                <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
     ];
