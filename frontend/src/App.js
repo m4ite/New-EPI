@@ -19,7 +19,6 @@ function App() {
         <Route path='/NewEPI' element={<NewEPI />} />
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
-
         <Route path='/HomeADM' element={<HomeADM />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Search' element={<Search />} />

@@ -1,11 +1,7 @@
 import { useState } from "react";
 import "./style.css"
 import axios from "axios"
-
-import { useHistory } from 'react-router-dom';
-
 import { useNavigate } from 'react-router'
-import Nav from "../../components/nav";
 
 function Login(){
 
