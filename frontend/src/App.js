@@ -29,7 +29,7 @@ function App() {
         <Route path='/Search' element={<Search />} />
         <Route path='/Map' element={<Map />} />
         <Route path='/Removes' element={<Removes />} />
-        <Route path='/' element={<Login />} />
+        <Route exact path='/' element={<Login />} />
       </Routes>
     </>
   );
