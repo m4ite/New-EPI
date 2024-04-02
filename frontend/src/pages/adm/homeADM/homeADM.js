@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHelmetSafety } from '@fortawesome/free-solid-svg-icons';
 
 import Maquina from "./maquina.png"
-import Estoque from "./estoque.png"
 
 function HomeADM() {
     return (
@@ -22,12 +21,6 @@ function HomeADM() {
                 <a href="ListagemMaquina" className={styles.button}>
                     <img src={Maquina}></img>
                     <p>Máquina</p>
-                </a>
-
-
-                <a href="Removes" className={styles.button}>
-                    <img src={Estoque}></img>
-                    <p>Estoque</p>
                 </a>
             </div>
 

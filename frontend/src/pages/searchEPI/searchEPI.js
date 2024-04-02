@@ -8,9 +8,9 @@ import Select from 'react-select'
 function SearchEPI() {
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
+        { value: 'Luva de Látex', label: 'Luva de Látex' },
+        { value: 'Protetor auricular', label: 'Protetor auricular' },
+        { value: 'Óculos', label: 'Óculos' }
     ]
 
     return (

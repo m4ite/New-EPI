@@ -1,37 +1,38 @@
 .square {
     background-color: #EAEAEA;
-    border-radius: "5em";
-    width: 30%;
+    border-radius: 2vh;
+    width: 25%;
     margin: 0 auto;
-    padding: 2em;
+    padding: 2%;
+    top: 50%;
+    transform: translateY(50%);
 }
 
 .t {
     font-weight: 700;
-    font-size: x-large;
+    font-size: 1.5vw;
     text-align: center;
-    margin-bottom: 2em;
-    margin-top: 2em;
+    margin-bottom: 20%;
+    margin-top: 2%;
 }
 
 .button {
-    padding-inline: 1em;
-    padding-block: .5em;
+    padding-block: 1%;
     background-color: white;
     border: 1px solid black;
-    border-radius: .5em;
+    border-radius: 1vh;
     margin: 0 auto;
     display: flex;
-    margin-top: 3em;
-    font-size: 1vw !important;
-    width: 25%;
-    justify-content: center;
-    background-color: #dbdbdb;
+    margin-top: 5%;
+    font-size: 1vw;
+    width: 50%;
+    background-color: white;
     font-weight: 500;
 }
 
 .select {
     width: 50%;
     margin: 0 auto;
-    margin-bottom: 12em;
+    margin-bottom: 20%;
+    font-size: 1vw;
 }
