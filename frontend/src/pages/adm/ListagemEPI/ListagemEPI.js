@@ -1,3 +1,5 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
@@ -9,9 +11,8 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-
 import { Button } from 'rsuite';
-import "./style.css"
+
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -100,14 +101,14 @@ function ListagemEPI() {
     return (
         <>
             <Nav />
-            <div className="rec">
-                <Button className="new" href="NewEPI">
+            <div className={styles.rec}>
+                <Button className={styles.new} href="NewEPI">
                     <FontAwesomeIcon icon={faPlus} />
                     novo EPI
                 </Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
-                <span className="pages">
+                <span className={styles.pages}>
                     {" "}
                     {pagination.state.getPages(data.nodes).map((_, index) => (
                         <button

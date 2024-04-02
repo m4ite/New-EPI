@@ -9,10 +9,10 @@ const getMachine = (_, res) => {
             WHEN Stock.Quantity < 5 THEN 'Baixo Estoque'
             ELSE 'Normal'
         END AS status
-    FROM
-        Machine
-    INNER JOIN Shed ON Machine.Shed_ID = Shed.ID
-    INNER JOIN Stock ON Machine.Stock_ID = Stock.ID`;
+        FROM
+            Machine
+        INNER JOIN Shed ON Machine.Shed_ID = Shed.ID
+        INNER JOIN Stock ON Machine.Stock_ID = Stock.ID`;
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
@@ -36,6 +36,26 @@ const addMachine = (req, res) => {
     });
 };
 
+const getMachineEPIS = (req, res) => {
+    const q = `
+        SELECT Machine.Shed_ID, Shed.Shed_Name
+        FROM Machine
+        INNER JOIN Stock ON Machine.ID = Stock.Machine_ID
+        INNER JOIN Shed on Machine.Shed_ID = Shed.ID
+        WHERE Stock.EPI_ID = (?);
+    `
+
+    const values = [
+        req.body.EPI_ID
+    ]
+
+    db.query(q, [values], (err, data) => {
+        if(err) return res.json(err)
+        console.log(data)
+        return res.status(200).json(data)
+    })
+}
+
 const deleteMachine = (req, res) => {
     const q =
         "DELETE FROM Machine WHERE ID = (?)";
@@ -51,4 +71,4 @@ const deleteMachine = (req, res) => {
     });
 };
 
-module.exports = [getMachine, addMachine, deleteMachine]
+module.exports = [getMachine, addMachine, deleteMachine, getMachineEPIS]

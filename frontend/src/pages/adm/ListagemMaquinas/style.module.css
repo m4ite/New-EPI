@@ -1,0 +1,50 @@
+.new{
+    font-size: 18px;
+    padding: .5em;
+    width: 15%;
+    justify-content: space-around;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid black;
+    float: right;
+}
+
+.rec {
+    width: 50%;
+    margin: 0 auto;
+}
+.delete{
+    background-color: #F01515;
+    padding: .2em;
+    padding-inline: 1em;
+    color: white;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+
+.edit{
+    background-color: #00A4C7;
+    padding: .2em;
+    padding-inline: 1em;
+    color: white;
+    border-radius: 5px;
+
+}
+
+.pages {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 2em;
+}
+
+.pages button {
+    background-color: transparent;
+    margin-inline: 1em;
+    border: none;
+    font-size: 15px;
+}
+
+
+

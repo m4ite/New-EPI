@@ -9,6 +9,10 @@
     float: right;
 }
 
+.rec {
+    width: 50%;
+    margin: 0 auto;
+}
 .delete{
     background-color: #F01515;
     padding: .2em;
@@ -27,4 +31,20 @@
     border-radius: 5px;
 
 }
+
+.pages {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 2em;
+}
+
+.pages button {
+    background-color: transparent;
+    margin-inline: 1em;
+    border: none;
+    font-size: 15px;
+}
+
+
 

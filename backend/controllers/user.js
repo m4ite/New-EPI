@@ -19,10 +19,9 @@ const userLogin = (req, res) => {
   ];
 
   db.query(q, [values[0], values[1]], (err, results) => {
-    if (err) return res.json(err);
 
-    if (results == ""){
-      return res.status(404).json({message: "Usuário não encontrado!"})
+    if (results.length == 0){
+      return res.status(404).json({message: "Usuário não econtrado!"})
     }
 
     return res.status(200).json(results);

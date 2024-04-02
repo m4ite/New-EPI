@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.css"
+import styles from "./style.module.css" 
 import axios from "axios"
 import { useNavigate } from 'react-router'
 
@@ -7,6 +7,7 @@ function Login(){
 
     const [edv, setEDV] = useState()
     const [password, setPassword] = useState()
+    const [error, setError] = useState("")
 
     const navigate = useNavigate()
 
@@ -15,8 +16,6 @@ function Login(){
             "edv": edv,
             "password": password
         }
-
-        console.log(userLogin)
         try {
           const response = await axios.post('http://localhost:8080/login', userLogin);
           
@@ -30,34 +29,32 @@ function Login(){
             }
           }
 
-          if (response.status == 404){
-            console.log(response.data)
-          }
-
 
         } catch (error) {
-          console.error('Erro ao fazer requisição POST:', error.message);
+          if (error.response.status == 404){
+            setError(error.response.data.message)
+          }
         }
     }
 
     return(
-        <div className="body">
-            <div className="container">
-                <div className="supergraphic"/>
-                <div className="logo"/>
+        <div className={styles.body}>
+            <div className={styles.container}>
+                <div className={styles.supergraphic}/>
+                <div className={styles.logo}/>
 
-                <div className="forms">
-                <p className="Label">EDV</p>
+                <div className={styles.forms}>
+                <p className={styles.Label}>EDV</p>
                 <input onChange={e => setEDV(e.target.value)}></input>
 
-                <p className="Label">Password</p>
+                <p className={styles.Label}>Password</p>
                 <input onChange={e => setPassword(e.target.value)}></input>
 
                 </div>
-                <a><button className="butt" onClick={() => TryLogin()}>Login</button></a>             
+                <a><button className={styles.butt} onClick={() => TryLogin()}>Login</button></a>  
+                {error && <p style={{ color: 'red' }}>{error}</p>}           
             </div>
         </div>
     )
-
 }
 export default Login

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select'
 
-import "./style.css"
+import styles from "./style.module.css"
 
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
@@ -93,13 +93,13 @@ function Removes() {
     return (
         <>
             <Nav />
-            <p className="t">Histórico de retiradas</p>
+            <p className={styles.t}>Histórico de retiradas</p>
 
-            <div className="rec">
-                <Button className="filter" onClick={handleOpen}><FontAwesomeIcon icon={faFilter} /></Button>
+            <div className={styles.rec}>
+                <Button className={styles.filter} onClick={handleOpen}><FontAwesomeIcon icon={faFilter} /></Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
-                <span className="pages">
+                <span className={styles.pages}>
                     {" "}
                     {pagination.state.getPages(data.nodes).map((_, index) => (
                         <button

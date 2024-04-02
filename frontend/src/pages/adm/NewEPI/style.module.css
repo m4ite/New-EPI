@@ -17,3 +17,11 @@ form{
     color: black;
     align-self: center;
 }
+
+.t {
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}

@@ -1,10 +1,9 @@
 const express = require("express")
+const cors = require("cors")
 const userRoutes = require("./routes/users.js")
 const epiRoutes = require("./routes/epi.js")
 const shedRoutes = require("./routes/shed.js")
 const machineRoutes = require("./routes/machine.js")
-const cors = require("cors")
-const { matchRoutes } = require("react-router-dom")
 
 const app = express()
 

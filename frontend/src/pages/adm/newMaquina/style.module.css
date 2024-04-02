@@ -1,0 +1,28 @@
+.all{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+.cadastrar{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-inline: 1em;
+    padding-block: .5em;
+    color: black;
+    align-self: center;
+}
+
+.t {
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+
+.select{
+    font-size: large;
+}

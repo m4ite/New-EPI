@@ -1,16 +1,16 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-
 import { Form, Input } from 'rsuite';
 import axios from "axios";
-import newEPI from "./newEPI.png"
 import { useEffect, useState } from "react";
 
-import "./style.css"
 import { useNavigate } from "react-router-dom";
 
 
+import newEPI from "./newEPI.jpg"
 
 function NewEPI() {
     const [EpiName, setName] = useState()
@@ -35,8 +35,8 @@ function NewEPI() {
     return (
         <>
             <Nav />
-            <p className="t">Cadastrar EPI</p>
-            <div className="all">
+            <p className={styles.t}>Cadastrar EPI</p>
+            <div className={styles.all}>
                 <Form>
                     <Form.Group controlId="name">
                         <Form.ControlLabel>Nome</Form.ControlLabel>
@@ -46,7 +46,7 @@ function NewEPI() {
                         <Form.ControlLabel>Prazo para retirada <span style={{fontSize:"15px"}}>(dias)</span></Form.ControlLabel>
                         <Form.Control onChange={(value) => setDays(value)} name="email" type="number" />
                     </Form.Group>
-                    <button onClick={() => AddEPI()}className="cadastrar">Cadastrar</button>
+                    <button onClick={() => AddEPI()} className={styles.cadastrar}>Cadastrar</button>
                 </Form>
 
                 <img src={newEPI}></img>

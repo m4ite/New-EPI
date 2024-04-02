@@ -1,3 +1,5 @@
+import styles from "./style.module.css"
+
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
@@ -11,11 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 
-import "./style.css"
-
 import { useNavigate } from "react-router-dom";
 import { Button } from 'rsuite';
-
 
 
 function ListagemMaquina() {
@@ -99,13 +98,13 @@ function ListagemMaquina() {
     return (
         <>
             <Nav />
-            <div className="rec">
-                <Button className="new" href="NewEPI">
+            <div className={styles.rec}>
+                <Button className={styles.new} href="NewMaquina">
                     <FontAwesomeIcon icon={faPlus} />
                     nova máquina
                 </Button>
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
-                <span className="pages">
+                <span className={styles.pages}>
                     {" "}
                     {pagination.state.getPages(data.nodes).map((_, index) => (
                         <button
