@@ -15,7 +15,7 @@ function Login() {
                 <div className={styles.logo} />
 
                 <Form className={styles.forms} fluid>
-                    <p className={styles.Label}>Username</p>
+                    <p className={styles.Label}>EDV</p>
                     <Form.Control name="name" />
 
 

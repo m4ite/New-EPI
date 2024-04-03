@@ -19,7 +19,7 @@ function HomeADM() {
                 </a>
 
                 <a href="ListagemMaquina" className={styles.button}>
-                    <img src={Maquina}></img>
+                    <img src={Maquina} className={styles.image}/>
                     <p>Máquina</p>
                 </a>
             </div>

@@ -11,7 +11,7 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'rsuite';
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -24,46 +24,46 @@ function ListagemEPI() {
             id: '0',
             name: 'Luva de Latex',
             proxima: new Date(2020, 1, 15),
-            buttons: <div style={{float: "right"}}>
-            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
-        </div>
+            buttons: <div style={{ float: "right" }}>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+            </div>
         },
         {
             id: '1',
             name: 'Protetor auricular',
             proxima: new Date(2020, 1, 15),
-            buttons: <div style={{float: "right"}}>
-            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
-        </div>
+            buttons: <div style={{ float: "right" }}>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+            </div>
         },
         {
             id: '2',
             name: 'Óculos',
             proxima: new Date(2020, 1, 15),
-            buttons: <div style={{float: "right"}}>
-            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
-        </div>
+            buttons: <div style={{ float: "right" }}>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+            </div>
         },
         {
             id: '3',
             name: 'Camisa manga longa',
             proxima: new Date(2020, 1, 15),
-            buttons: <div style={{float: "right"}}>
-            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
-        </div>
+            buttons: <div style={{ float: "right" }}>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+            </div>
         },
         {
             id: '4',
             name: 'Camisa manga curta',
             proxima: new Date(2020, 1, 15),
-            buttons: <div style={{float: "right"}}>
-            <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-            <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan}/></button>
-        </div>
+            buttons: <div style={{ float: "right" }}>
+                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+            </div>
         }
     ];
     const data = { nodes };
@@ -87,12 +87,15 @@ function ListagemEPI() {
     return (
         <>
             <Nav />
+
+            <button className={styles.new} href="NewEPI">
+                <FontAwesomeIcon icon={faPlus} />
+                novo EPI
+            </button>
+
             <div className={styles.rec}>
-                <Button className={styles.new} href="NewEPI">
-                    <FontAwesomeIcon icon={faPlus} />
-                    novo EPI
-                </Button>
-                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
+
+                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination}/>
 
                 <span className={styles.pages}>
                     {" "}
