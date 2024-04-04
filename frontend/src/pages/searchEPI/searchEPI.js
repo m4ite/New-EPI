@@ -23,7 +23,7 @@ function SearchEPI() {
                     <Select options={options} />
                 </div>
 
-                <a className={styles.button}>Buscar</a>
+                <a className={styles.button} href="MaquinaEPI">Buscar</a>
 
             </div>
 
