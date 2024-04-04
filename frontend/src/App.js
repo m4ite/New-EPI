@@ -2,6 +2,7 @@ import Home from './pages/home/home';
 import Search from './pages/searchEPI/searchEPI';
 import Map from './pages/map/map';
 import Removes from './pages/removes/removes';
+import MaquinaEPI from './pages/maquinaEPI/maquinaEPI';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
 import HomeADM from './pages/adm/homeADM/homeADM';
@@ -16,18 +17,19 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path='/' element={<Login />} />
         <Route path='/ListagemEPI' element={<ListagemEPI />} />
         <Route path='/NewEPI' element={<NewEPI />} />
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
         <Route path='/NewMaquina' element={<NewMaquina />} />
         <Route path='/NewMaquina2' element={<NewMaquina2 />} />
+        <Route path='/MaquinaEPI' element={<MaquinaEPI />} />
         <Route path='/HomeADM' element={<HomeADM />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Search' element={<Search />} />
         <Route path='/Map' element={<Map />} />
         <Route path='/Removes' element={<Removes />} />
-        <Route path='/' element={<Login />} />
       </Routes>
     </>
   );

@@ -19,13 +19,11 @@ import axios from "axios";
 
 function ListagemEPI() {
 
-    const Navigate = useNavigate();
     const [nodes, setMachines] = useState([])
     
     async function CallEpis() {
         try {
             const response = await axios.get('http://localhost:8080/epis');
-            console.log(response.data)
             setMachines(response.data)
         } catch (error) {
             console.error(error.message);

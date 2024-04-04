@@ -7,7 +7,7 @@ function NavHome() {
         <>
             <div className={styles.supergraphic}></div>
             <div className={styles.line}>
-                <a href="/"><FontAwesomeIcon icon={faArrowRightFromBracket} id="icon"/></a>
+                <button onClick={() => window.history.back()} className={styles.back}><FontAwesomeIcon icon={faArrowRightFromBracket} /></button>
                 <div className={styles.logo}></div>
                 <p>Olá, {user[0].User_Name}!</p>
             </div>

@@ -1,6 +1,6 @@
 .supergraphic {
     background-image: url("./supergraphic.svg");
-    height: 25px;
+    height: 2vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100px;
+    height: 10vh;
     width: 20%;
 }
 
@@ -30,11 +30,13 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     font-weight: 600;
-    font-size: 30px;
-    padding-inline: 3em;
+    font-size: 1.5vw;
+    padding-inline: 3%;
 }
 
 
 .back{
     background-color: transparent;
+    border: none;
+    width: auto;
 }
