@@ -93,11 +93,13 @@ function ListagemMaquina() {
     return (
         <>
             <Nav />
+            <Button className={styles.new} href="NewMaquina">
+                <FontAwesomeIcon icon={faPlus} />
+                nova máquina
+            </Button>
+
             <div className={styles.rec}>
-                <Button className={styles.new} href="NewMaquina">
-                    <FontAwesomeIcon icon={faPlus} />
-                    nova máquina
-                </Button>
+
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
                 <span className={styles.pages}>
                     {" "}

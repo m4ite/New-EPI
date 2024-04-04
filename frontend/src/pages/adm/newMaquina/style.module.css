@@ -1,28 +1,53 @@
-.all{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+.form {
+    width: 15%;
+    margin: 0 auto;
 }
 
-
-.cadastrar{
-    border: 1px solid black;
-    border-radius: 15px;
-    padding-inline: 1em;
-    padding-block: .5em;
+.cadastrar {
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 1vw;
+    padding-inline: 1vw;
+    padding-block: .5vw;
     color: black;
-    align-self: center;
+    text-align: center;
+    font-size: 1vw;
+   
 }
 
 .t {
     font-weight: 700;
-    font-size: x-large;
+    font-size: 1.5vw;
     text-align: center;
-    margin-bottom: 2em;
-    margin-top: 2em;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 
-.select{
-    font-size: large;
+.select {
+    font-size: .8vw;
+}
+
+.btt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5vw;
+}
+
+.qtd{
+    color: gray;
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+}
+
+.forms{
+    width: 55%;
+    margin: 0 auto;
+}
+
+.f {
+    margin-bottom: 3vw;
 }

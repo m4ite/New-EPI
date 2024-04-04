@@ -35,13 +35,7 @@ table th {
     margin: 0 auto;
 }
 
-.dialog {
-    max-width: 10vw;
-    border: 0;
-    border-radius: 0.5vw;
-    box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
-    position: relative;
-}
+
 
 .t {
     font-weight: 700;
