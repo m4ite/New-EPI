@@ -12,7 +12,6 @@ import NewEPI from './pages/adm/NewEPI/NewEPI';
 import EditEPI from './pages/adm/EditEPI/EditEPI';
 import ListagemMaquina from './pages/adm/ListagemMaquinas/ListagemMaquina';
 import NewMaquina from './pages/adm/newMaquina/newMaquina';
-import NewMaquina2 from './pages/adm/newMaquina2/newMaquina2';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
         <Route path='/NewMaquina' element={<NewMaquina />} />
-        <Route path='/NewMaquina2' element={<NewMaquina2 />} />
         <Route path='/MaquinaEPI' element={<MaquinaEPI />} />
 
         <Route path='/HomeADM' element={<HomeADM />} />

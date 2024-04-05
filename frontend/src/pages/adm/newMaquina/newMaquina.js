@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-import { Form, TagPicker, Modal, Button, InputGroup } from 'rsuite'
+import { Form, TagPicker, Modal, Button } from 'rsuite'
 import Select from 'react-select'
 
 function NewMaquina() {

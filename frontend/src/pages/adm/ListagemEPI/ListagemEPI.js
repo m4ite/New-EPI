@@ -1,8 +1,8 @@
-import styles from "./style.module.css"
+import styles from "../ListagemMaquinas/style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
-
+import { useState } from 'react';
 
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
@@ -14,10 +14,16 @@ import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 
 import { useNavigate } from "react-router-dom";
+import { Button, Modal, Form } from 'rsuite';
+
 
 function ListagemEPI() {
 
     const Navigate = useNavigate();
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const nodes = [
         {
@@ -88,14 +94,15 @@ function ListagemEPI() {
         <>
             <Nav />
 
-            <button className={styles.new} href="NewEPI">
+            <Button className={styles.new} onClick={handleOpen} href="#">
                 <FontAwesomeIcon icon={faPlus} />
                 novo EPI
-            </button>
+            </Button>
+
 
             <div className={styles.rec}>
 
-                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination}/>
+                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
                 <span className={styles.pages}>
                     {" "}
@@ -115,6 +122,32 @@ function ListagemEPI() {
             </div>
 
             <Footer />
+
+            <Modal open={open} onClose={handleClose} >
+                <Modal.Body>
+                    <Form className={styles.forms} fluid>
+                        <p className={styles.Label}>Protetor Auricular</p>
+                        <div className={styles.line}>
+                            <span className={styles.qtd}>Qtd</span>
+                            <Form.Control name="sla" className={styles.f} />
+                        </div>
+
+                        <p className={styles.Label}>Óculos</p>
+                        <div className={styles.line}>
+                            <span className={styles.qtd}>Qtd</span>
+                            <Form.Control name="sla2" className={styles.f} />
+                        </div>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleClose} appearance="primary">
+                        Ok
+                    </Button>
+                    <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

@@ -19,21 +19,19 @@
 }
 .delete{
     background-color: #F01515;
-    padding: .2em;
-    padding-inline: 1em;
+    padding-inline: 1vw;
     color: white;
-    border-radius: 5px;
-    margin-left: 1em;
+    border-radius: .2vw;
+    margin-left: 1vw;
 }
 
 
 .edit{
     background-color: #00A4C7;
-    padding: .2em;
-    padding-inline: 1em;
+    padding-inline: 1vw;
     color: white;
-    border-radius: 5px;
-
+    border-radius: .2vw;
+    margin-left: 1vw;
 }
 
 .pages {

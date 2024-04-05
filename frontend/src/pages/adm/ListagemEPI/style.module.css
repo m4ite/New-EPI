@@ -1,20 +1,21 @@
 .new{
-    padding: .3vw;
-    width: 8%;
+    font-size: 2vw;
+    padding: .5%;
+    width: 10%;
+    justify-content: space-around;
     color: black;
     border-radius: 1vw;
-    border: 1px solid black;
-    float: right;
-    font-size: .8vw;
-    margin-right: 5vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    border: 1px solid rgb(219, 219, 219);
+    position: fixed;
+    right: 3vw;
 }
 
 .rec {
     width: 50%;
     margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
 }
 
 .delete{

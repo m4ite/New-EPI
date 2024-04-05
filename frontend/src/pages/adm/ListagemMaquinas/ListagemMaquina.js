@@ -1,4 +1,4 @@
-import styles from "./style.module.css"
+import styles from "../ListagemMaquinas/style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
@@ -18,11 +18,11 @@ function ListagemMaquina() {
 
     const Navigate = useNavigate();
 
-    const b = {
-        code: <div style={{ float: "right" }}>
+    const b = () => {
+        return (<div style={{ float: "right" }}>
             <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
             <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        </div>
+        </div>)
     }
 
     const nodes = [
@@ -30,10 +30,7 @@ function ListagemMaquina() {
             codigo: "544354",
             localização: 'Ct 401',
             status: "ok",
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
+            buttons: b()
         },
         {
             codigo: "544354",
