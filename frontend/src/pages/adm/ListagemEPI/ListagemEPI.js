@@ -12,9 +12,7 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-
-import { useNavigate } from "react-router-dom";
-import { Button, Modal, Form } from 'rsuite';
+import { Button, Modal, Form, Message, useToaster } from 'rsuite';
 
 
 function ListagemEPI() {
@@ -42,43 +40,7 @@ function ListagemEPI() {
                 <button className={styles.edit} onClick={() => handleEdit()}><FontAwesomeIcon icon={faPencil} /></button>
                 <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
-        },
-        // {
-        //     id: '1',
-        //     name: 'Protetor auricular',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '2',
-        //     name: 'Óculos',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '3',
-        //     name: 'Camisa manga longa',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '4',
-        //     name: 'Camisa manga curta',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // }
+        }
     ];
     const data = { nodes };
     const theme = useTheme(getTheme());
@@ -98,8 +60,26 @@ function ListagemEPI() {
     function onPaginationChange(action, state) {
         console.log(action, state);
     }
+
+    const toaster = useToaster();
+
+    function showError(message) {
+        return <Message showIcon type="error" closable>
+            <strong>Error!</strong> {message}
+        </Message>
+    }
+
+    function showSuccess(message) {
+        return <Message showIcon type="success" closable>
+            <strong>Success!</strong> You can use the `Message` component to display a success message.
+        </Message>
+    }
+
     return (
         <>
+            {showSuccess("EPI cadastrado com sucesso!")}
+
+            {showError("Falha ao cadastrar EPI!")}
             <Nav />
 
             <Button className={styles.new} onClick={handleOpen} href="#">
