@@ -19,9 +19,6 @@ import { Button, Modal, Form } from 'rsuite';
 
 function ListagemEPI() {
 
-    const Navigate = useNavigate();
-
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
 
