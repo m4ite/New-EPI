@@ -1,4 +1,4 @@
-import styles from "../ListagemMaquinas/style.module.css"
+import styles from "./style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
@@ -21,9 +21,20 @@ function ListagemEPI() {
 
     const Navigate = useNavigate();
 
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
+    const [editar, setEditar] = useState();
+    function handleEdit() {
+        setOpen(true)
+        setEditar(true)
+    }
+
+    const handleClose = () =>{
+        setOpen(false)
+        setEditar(false)
+    }
 
     const nodes = [
         {
@@ -31,46 +42,46 @@ function ListagemEPI() {
             name: 'Luva de Latex',
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+                <button className={styles.edit} onClick={() => handleEdit()}><FontAwesomeIcon icon={faPencil} /></button>
                 <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         },
-        {
-            id: '1',
-            name: 'Protetor auricular',
-            proxima: new Date(2020, 1, 15),
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            id: '2',
-            name: 'Óculos',
-            proxima: new Date(2020, 1, 15),
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            id: '3',
-            name: 'Camisa manga longa',
-            proxima: new Date(2020, 1, 15),
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            id: '4',
-            name: 'Camisa manga curta',
-            proxima: new Date(2020, 1, 15),
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        }
+        // {
+        //     id: '1',
+        //     name: 'Protetor auricular',
+        //     proxima: new Date(2020, 1, 15),
+        //     buttons: <div style={{ float: "right" }}>
+        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+        //     </div>
+        // },
+        // {
+        //     id: '2',
+        //     name: 'Óculos',
+        //     proxima: new Date(2020, 1, 15),
+        //     buttons: <div style={{ float: "right" }}>
+        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+        //     </div>
+        // },
+        // {
+        //     id: '3',
+        //     name: 'Camisa manga longa',
+        //     proxima: new Date(2020, 1, 15),
+        //     buttons: <div style={{ float: "right" }}>
+        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+        //     </div>
+        // },
+        // {
+        //     id: '4',
+        //     name: 'Camisa manga curta',
+        //     proxima: new Date(2020, 1, 15),
+        //     buttons: <div style={{ float: "right" }}>
+        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
+        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+        //     </div>
+        // }
     ];
     const data = { nodes };
     const theme = useTheme(getTheme());
@@ -124,19 +135,20 @@ function ListagemEPI() {
             <Footer />
 
             <Modal open={open} onClose={handleClose} >
+
+                <Modal.Title className={styles.title}>
+                    {editar ? "Editar EPI" : "Cadastrar EPI"}
+                </Modal.Title>
+
                 <Modal.Body>
                     <Form className={styles.forms} fluid>
-                        <p className={styles.Label}>Protetor Auricular</p>
-                        <div className={styles.line}>
-                            <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla" className={styles.f} />
-                        </div>
 
-                        <p className={styles.Label}>Óculos</p>
-                        <div className={styles.line}>
-                            <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla2" className={styles.f} />
-                        </div>
+                        <p className={styles.Label}>Nome</p>
+                        <Form.Control name="nome" className={styles.f} />
+
+                        <p className={styles.Label}>Prazo para retirada:  <span className={styles.dias}>(dias)</span></p>
+                        <Form.Control name="prazo" className={styles.f} />
+
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

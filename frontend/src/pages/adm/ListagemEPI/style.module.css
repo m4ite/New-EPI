@@ -39,13 +39,33 @@
     justify-content: center;
     margin: 0 auto;
     display: flex;
-    margin-top: 2em;
+    margin-top: 2vw;
 }
 
 .pages button {
     background-color: transparent;
-    margin-inline: 1em;
+    margin-inline: 1.5vw;
     border: none;
     font-size: 15px;
 }
 
+.dias{
+    font-size: .8vw;
+
+}
+
+.forms{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Label{
+    margin-top: 3vw;
+    margin-bottom: .5vw;
+}
+
+.title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5vw;
+}
