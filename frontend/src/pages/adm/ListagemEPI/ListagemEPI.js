@@ -11,9 +11,9 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'rsuite';
 
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -99,12 +99,15 @@ function ListagemEPI() {
     return (
         <>
             <Nav />
+
+            <button className={styles.new} href="NewEPI">
+                <FontAwesomeIcon icon={faPlus} />
+                novo EPI
+            </button>
+
             <div className={styles.rec}>
-                <Button className={styles.new} href="NewEPI">
-                    <FontAwesomeIcon icon={faPlus} />
-                    novo EPI
-                </Button>
-                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
+
+                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination}/>
 
                 <span className={styles.pages}>
                     {" "}

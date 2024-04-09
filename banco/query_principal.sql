@@ -32,7 +32,25 @@ INSERT INTO EPI (EPI_Name, Days_time) VALUES
 INSERT INTO Withdrawal (EPI_ID, User_ID, Shed_ID, Date_) VALUES
 (1, 1, 1, '2024-03-10'),
 (2, 2, 2, '2024-03-11'),
-(3, 3, 3, '2024-03-12');
+(3, 3, 3, '2024-03-12'),
+(1, 1, 1, '2024-03-13'),
+(2, 2, 2, '2024-03-14'),
+(3, 3, 3, '2024-03-15'),
+(1, 1, 1, '2024-03-16'),
+(2, 2, 2, '2024-03-17'),
+(3, 3, 3, '2024-03-18'),
+(1, 1, 1, '2024-03-19'),
+(2, 3, 1, '2024-03-20'),
+(3, 1, 2, '2024-03-21'),
+(1, 2, 3, '2024-03-22'),
+(2, 3, 1, '2024-03-23'),
+(3, 1, 2, '2024-03-24'),
+(1, 2, 3, '2024-03-25'),
+(2, 3, 1, '2024-03-26'),
+(3, 1, 2, '2024-03-27'),
+(1, 2, 3, '2024-03-28'),
+(2, 3, 1, '2024-03-29');
+
 
 -- Inserindo dados na tabela Machine
 INSERT INTO Machine (Shed_ID, Machine_code) VALUES
@@ -110,4 +128,14 @@ INNER JOIN Stock ON Machine.ID = Stock.Machine_ID
 INNER JOIN Shed on Machine.Shed_ID = Shed.ID
 WHERE Stock.EPI_ID = 3;
 
-drop table Shed, bosch_user,epi,withdrawal,stock,machine
+drop table Shed, bosch_user,epi,withdrawal,stock,machine;
+
+
+SELECT 
+withdrawal.Date_, 
+EPI.EPi_Name, 
+Shed.Shed_Name 
+FROM withdrawal 
+INNER JOIN EPI ON withdrawal.EPI_ID = EPI.Id
+INNER JOIN Shed ON withdrawal.Shed_ID = Shed.Id
+WHERE User_ID = 2;

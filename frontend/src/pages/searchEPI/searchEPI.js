@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 
 function SearchEPI() {
+
+    const Navigate = useNavigate()
+
     const [epis, setEpis] = useState([
         {
             value: "", label: ""
@@ -23,6 +26,10 @@ function SearchEPI() {
             console.error(error.message);
         }
     }
+
+    function MachineSearch(){
+        Navigate(`/MaquinaEPI/${epiSearch}`)
+    }
     
     useEffect(() => {
         CallEpis()
@@ -37,7 +44,9 @@ function SearchEPI() {
                 <div className={styles.select}>
                     <Select options={epis} onChange={(e) => setEpiSearch(e.value) }/>
                 </div>
-                <a className={styles.button}>Buscar</a>
+
+                <a className={styles.button} onClick={() => MachineSearch()}>Buscar</a>
+
             </div>
 
 

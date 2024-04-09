@@ -12,7 +12,7 @@ const getMachine = (_, res) => {
         FROM
             Machine
         INNER JOIN Shed ON Machine.Shed_ID = Shed.ID
-        INNER JOIN Stock ON Machine.Stock_ID = Stock.ID`;
+        INNER JOIN Stock ON Stock.Machine_ID = Machine.ID`;
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
@@ -37,8 +37,9 @@ const addMachine = (req, res) => {
 };
 
 const getMachineEPIS = (req, res) => {
+    const id = req.params.id;
     const q = `
-        SELECT Machine.Shed_ID, Shed.Shed_Name
+        SELECT Machine.Machine_code, Shed.Shed_Name
         FROM Machine
         INNER JOIN Stock ON Machine.ID = Stock.Machine_ID
         INNER JOIN Shed on Machine.Shed_ID = Shed.ID
@@ -46,7 +47,7 @@ const getMachineEPIS = (req, res) => {
     `
 
     const values = [
-        req.body.EPI_ID
+        id
     ]
 
     db.query(q, [values], (err, data) => {

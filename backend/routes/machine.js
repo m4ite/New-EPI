@@ -6,6 +6,6 @@ const router = express.Router()
 router.get("/machine", getMachine)
 router.post("/machine", addMachine)
 router.delete("/machine", deleteMachine)
-router.post("/machineEpi", getMachineEPIS)
+router.get("/machineEpi/:id", getMachineEPIS)
 
 module.exports = router

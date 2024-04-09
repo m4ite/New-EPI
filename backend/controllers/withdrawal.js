@@ -1,35 +1,27 @@
 const db = require("../db");
 
-const getWithdrawal = (_, res) => {
-  const q = "SELECT * FROM Withdrawal";
+const getWithdrawal = (req, res) => {
+  const q = `
+  SELECT withdrawal.Date_, EPI.EPi_Name, Shed.Shed_Name, DATE_ADD(withdrawal.Date_, 
+  INTERVAL EPI.Days_time DAY) AS NextRemove
+  FROM withdrawal 
+  INNER JOIN EPI ON withdrawal.EPI_ID = EPI.Id
+  INNER JOIN Shed ON withdrawal.Shed_ID = Shed.Id
+  WHERE User_ID = (?);`;
 
-  db.query(q, (err, data) => {
+  const id = [
+    req.body.id
+  ]
+
+  db.query(q, [id], (err, data) => {
     if (err) return res.json(err);
-    console.log(data)
+    return res.status(200).json(data)
   })
+
 }
 
 
-const addWithdrawal = (req, res) => {
-  const q =
-    "INSERT INTO Withdrawal(`EPI_ID`, `User_ID`, `Shed_ID`, `Date_`) VALUES(?)";
-
-  const values = [
-    req.body.EPI_ID,
-    req.body.User_ID,
-    req.body.Shed_ID,
-    req.body.Date_
-  ];
-
-  db.query(q, [values], (err) => {
-    if (err) return res.json(err);
-
-    return res.status(200).json("Usuário criado com sucesso.");
-  });
-};
-
-
-const deleteWithdrawal= (req, res) => {
+const deleteWithdrawal = (req, res) => {
   const q =
     "DELETE FROM Withdrawal WHERE ID = (?)";
 
@@ -44,4 +36,4 @@ const deleteWithdrawal= (req, res) => {
   });
 };
 
-module.exports = [getWithdrawal, addWithdrawal, deleteWithdrawal]
+module.exports = [getWithdrawal, deleteWithdrawal]

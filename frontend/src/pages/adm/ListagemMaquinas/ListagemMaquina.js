@@ -8,12 +8,9 @@ import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
 import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
-
-import { useNavigate } from "react-router-dom";
 import { Button } from 'rsuite';
 
 
@@ -32,8 +29,6 @@ function ListagemMaquina() {
     useEffect(() => {
         CallMachines()
     }, [])
-
-    const Navigate = useNavigate();
 
     // const nodes = [
     //     {

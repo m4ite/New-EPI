@@ -32,8 +32,6 @@ function Login() {
           navigate("/Home")
         }
       }
-
-
     } catch (error) {
       if (error.response.status == 404) {
         setError(error.response.data.message)

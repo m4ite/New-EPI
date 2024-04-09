@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 function NavHome() {
     const user = JSON.parse(sessionStorage.getItem("Usuario"))
+    console.log(user)
     return (
         <>
             <div className={styles.supergraphic}></div>
