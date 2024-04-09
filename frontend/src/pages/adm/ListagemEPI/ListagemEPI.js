@@ -2,7 +2,7 @@ import styles from "./style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
-
+import { useState } from 'react';
 
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
@@ -12,6 +12,7 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
+import { Button, Modal, Form } from 'rsuite';
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -34,53 +35,25 @@ function ListagemEPI() {
         CallEpis()
     }, [])
 
-    // const nodes = [
-    //     {
-    //         id: '0',
-    //         name: 'Luva de Latex',
-    //         proxima: new Date(2020, 1, 15),
-    //         buttons: <div style={{float: "right"}}>
-    //         <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-    //         <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
-    //     </div>
-    //     },
-    //     {
-    //         id: '1',
-    //         name: 'Protetor auricular',
-    //         proxima: new Date(2020, 1, 15),
-    //         buttons: <div style={{float: "right"}}>
-    //         <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-    //         <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
-    //     </div>
-    //     },
-    //     {
-    //         id: '2',
-    //         name: 'Óculos',
-    //         proxima: new Date(2020, 1, 15),
-    //         buttons: <div style={{float: "right"}}>
-    //         <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-    //         <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
-    //     </div>
-    //     },
-    //     {
-    //         id: '3',
-    //         name: 'Camisa manga longa',
-    //         proxima: new Date(2020, 1, 15),
-    //         buttons: <div style={{float: "right"}}>
-    //         <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-    //         <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
-    //     </div>
-    //     },
-    //     {
-    //         id: '4',
-    //         name: 'Camisa manga curta',
-    //         proxima: new Date(2020, 1, 15),
-    //         buttons: <div style={{float: "right"}}>
-    //         <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil}/></button>
-    //         <button className="delete"><FontAwesomeIcon icon={faTrashCan}/></button>
-    //     </div>
-    //     }
-    // ];
+
+function ListagemEPI() {
+
+    const Navigate = useNavigate();
+
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+
+    const [editar, setEditar] = useState();
+    function handleEdit() {
+        setOpen(true)
+        setEditar(true)
+    }
+
+    const handleClose = () =>{
+        setOpen(false)
+        setEditar(false)
+    }
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {
@@ -100,14 +73,15 @@ function ListagemEPI() {
         <>
             <Nav />
 
-            <button className={styles.new} href="NewEPI">
+            <Button className={styles.new} onClick={handleOpen} href="#">
                 <FontAwesomeIcon icon={faPlus} />
                 novo EPI
-            </button>
+            </Button>
+
 
             <div className={styles.rec}>
 
-                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination}/>
+                <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
 
                 <span className={styles.pages}>
                     {" "}
@@ -127,8 +101,36 @@ function ListagemEPI() {
             </div>
 
             <Footer />
+
+            <Modal open={open} onClose={handleClose} >
+
+                <Modal.Title className={styles.title}>
+                    {editar ? "Editar EPI" : "Cadastrar EPI"}
+                </Modal.Title>
+
+                <Modal.Body>
+                    <Form className={styles.forms} fluid>
+
+                        <p className={styles.Label}>Nome</p>
+                        <Form.Control name="nome" className={styles.f} />
+
+                        <p className={styles.Label}>Prazo para retirada:  <span className={styles.dias}>(dias)</span></p>
+                        <Form.Control name="prazo" className={styles.f} />
+
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleClose} appearance="primary">
+                        Ok
+                    </Button>
+                    <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
+}
 }
 
 export default ListagemEPI

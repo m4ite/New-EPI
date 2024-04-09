@@ -1,4 +1,4 @@
-import styles from "./style.module.css"
+import styles from "../ListagemMaquinas/style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
@@ -93,11 +93,13 @@ function ListagemMaquina() {
     return (
         <>
             <Nav />
+            <Button className={styles.new} href="NewMaquina">
+                <FontAwesomeIcon icon={faPlus} />
+                nova máquina
+            </Button>
+
             <div className={styles.rec}>
-                <Button className={styles.new} href="NewMaquina">
-                    <FontAwesomeIcon icon={faPlus} />
-                    nova máquina
-                </Button>
+
                 <CompactTable columns={COLUMNS} data={data} theme={theme} pagination={pagination} />
                 <span className={styles.pages}>
                     {" "}

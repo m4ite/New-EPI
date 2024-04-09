@@ -1,35 +1,37 @@
 .new{
-    font-size: 18px;
-    padding: .5em;
-    width: 15%;
+    font-size: 2vw;
+    padding: .5%;
+    width: 10%;
     justify-content: space-around;
     color: black;
-    border-radius: 15px;
-    border: 1px solid black;
-    float: right;
+    border-radius: 1vw;
+    border: 1px solid rgb(219, 219, 219);
+    position: fixed;
+    right: 3vw;
 }
 
 .rec {
     width: 50%;
     margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
 }
 .delete{
     background-color: #F01515;
-    padding: .2em;
-    padding-inline: 1em;
+    padding-inline: 1vw;
     color: white;
-    border-radius: 5px;
-    margin-left: 1em;
+    border-radius: .2vw;
+    margin-left: 1vw;
 }
 
 
 .edit{
     background-color: #00A4C7;
-    padding: .2em;
-    padding-inline: 1em;
+    padding-inline: 1vw;
     color: white;
-    border-radius: 5px;
-
+    border-radius: .2vw;
+    margin-left: 1vw;
 }
 
 .pages {
