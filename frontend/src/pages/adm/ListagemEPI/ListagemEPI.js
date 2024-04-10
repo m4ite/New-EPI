@@ -12,7 +12,7 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-import { Button, Modal, Form } from 'rsuite';
+import { Button, Modal, Form, Message, useToaster } from 'rsuite';
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -38,9 +38,6 @@ function ListagemEPI() {
 
 function ListagemEPI() {
 
-    const Navigate = useNavigate();
-
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
 
@@ -54,6 +51,7 @@ function ListagemEPI() {
         setOpen(false)
         setEditar(false)
     }
+
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {
@@ -69,8 +67,26 @@ function ListagemEPI() {
     function onPaginationChange(action, state) {
         console.log(action, state);
     }
+
+    const toaster = useToaster();
+
+    function showError(message) {
+        return <Message showIcon type="error" closable>
+            <strong>Error!</strong> {message}
+        </Message>
+    }
+
+    function showSuccess(message) {
+        return <Message showIcon type="success" closable>
+            <strong>Success!</strong> You can use the `Message` component to display a success message.
+        </Message>
+    }
+
     return (
         <>
+            {showSuccess("EPI cadastrado com sucesso!")}
+
+            {showError("Falha ao cadastrar EPI!")}
             <Nav />
 
             <Button className={styles.new} onClick={handleOpen} href="#">
