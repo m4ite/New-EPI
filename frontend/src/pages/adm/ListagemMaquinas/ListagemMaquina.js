@@ -9,8 +9,10 @@ import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'rsuite';
+import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { ButtonToolbar, IconButton } from 'rsuite';
+
+import PlusIcon from '@rsuite/icons/Plus';
 
 import { useNavigate } from "react-router-dom";
 
@@ -90,10 +92,9 @@ function ListagemMaquina() {
     return (
         <>
             <Nav />
-            <Button className={styles.new} href="NewMaquina">
-                <FontAwesomeIcon icon={faPlus} />
-                nova máquina
-            </Button>
+            <ButtonToolbar className={styles.new} >
+                <IconButton icon={<PlusIcon />} onClick={() => Navigate("/NewMaquina")}>Add Maquina</IconButton>
+            </ButtonToolbar>
 
             <div className={styles.rec}>
 

@@ -1,5 +1,4 @@
 import styles from "./style.module.css"
-import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 import Nav from "../../../components/nav"
@@ -10,7 +9,6 @@ import Select from 'react-select'
 
 function NewMaquina() {
 
-    const Navigate = useNavigate()
 
     const options1 = [
         { value: 'chocolate', label: 'Chocolate' },
@@ -27,14 +25,14 @@ function NewMaquina() {
     const handleClose = () => setOpen(false);
 
     function showError(message) {
-        return <Message showIcon type="error">
+        return <Message showIcon type="error" closable>
             <strong>Error!</strong> {message}
         </Message>
     }
 
     function showSuccess(message) {
-        return <Message showIcon type="success">
-            <strong>Success!</strong> You can use the `Message` component to display a success message.
+        return <Message showIcon type="success" closable>
+            <strong>Success!</strong> {message}
         </Message>
     }
 
@@ -43,8 +41,7 @@ function NewMaquina() {
         <>
 
             {showError("Erro ao cadastrar máquina")}
-            {showSuccess("Erro ao cadastrar máquina")}
-
+            {showSuccess("Máquina cadastrada com sucesso!")}
 
             <Nav />
 

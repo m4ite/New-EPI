@@ -10,12 +10,16 @@ import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-import { Button, Modal, Form, Message, useToaster } from 'rsuite';
+import { Button, Modal, Form, Message, ButtonToolbar, IconButton } from 'rsuite';
+import { useNavigate } from "react-router-dom";
 
+import PlusIcon from '@rsuite/icons/Plus';
 
 function ListagemEPI() {
+
+    const Navigate = useNavigate();
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -61,8 +65,6 @@ function ListagemEPI() {
         console.log(action, state);
     }
 
-    const toaster = useToaster();
-
     function showError(message) {
         return <Message showIcon type="error" closable>
             <strong>Error!</strong> {message}
@@ -71,7 +73,7 @@ function ListagemEPI() {
 
     function showSuccess(message) {
         return <Message showIcon type="success" closable>
-            <strong>Success!</strong> You can use the `Message` component to display a success message.
+            <strong>Success!</strong> {message}
         </Message>
     }
 
@@ -82,10 +84,9 @@ function ListagemEPI() {
             {showError("Falha ao cadastrar EPI!")}
             <Nav />
 
-            <Button className={styles.new} onClick={handleOpen} href="#">
-                <FontAwesomeIcon icon={faPlus} />
-                novo EPI
-            </Button>
+            <ButtonToolbar className={styles.new} >
+                <IconButton onClick={handleOpen} icon={<PlusIcon />}>Add EPI</IconButton>
+            </ButtonToolbar>
 
 
             <div className={styles.rec}>

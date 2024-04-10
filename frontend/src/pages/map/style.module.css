@@ -18,13 +18,13 @@
 
 }
 
-.barracao1{
+.barracao210{
   composes: btt;
-  top: 50%;
+  top: 48%;
   left: 50%;
 }
 
-.barracao2{
+.barracao201{
   composes: btt;
   top: 60%;
   left: 50%;
@@ -32,10 +32,21 @@
 
 .barracao401{
   composes: btt;
-  top: 30%;
+  top: 32%;
   left: 52%;
 }
 
+.barracao303{
+  composes: btt;
+  top: 25%;
+  left: 65%;
+}
+
+.barracao101{
+  composes: btt;
+  top: 50%;
+  left: 63%;
+}
 
 .location{
   color: white;
@@ -46,7 +57,7 @@
 .mapa{
   background-image: url("./map.png");
   width: 900px;
-  height: 550px;
+  height: 604.6px;
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
