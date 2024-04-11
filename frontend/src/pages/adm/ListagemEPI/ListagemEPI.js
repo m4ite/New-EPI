@@ -16,6 +16,8 @@ import { Button, Modal, Form, Message, ButtonToolbar, IconButton } from 'rsuite'
 import { useNavigate } from "react-router-dom";
 
 import PlusIcon from '@rsuite/icons/Plus';
+import RemindIcon from '@rsuite/icons/legacy/Remind';
+
 
 function ListagemEPI() {
 
@@ -24,15 +26,24 @@ function ListagemEPI() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
 
+    const [openDelete, setOpenDelete] = useState(false);
+    const handleOpenDelete = () => setOpenDelete(true);
+
+
+
     const [editar, setEditar] = useState();
     function handleEdit() {
         setOpen(true)
         setEditar(true)
     }
 
-    const handleClose = () =>{
+    const handleClose = () => {
         setOpen(false)
         setEditar(false)
+    }
+
+    const handleCloseDelete = () =>{
+        setOpenDelete(false)
     }
 
     const nodes = [
@@ -42,7 +53,7 @@ function ListagemEPI() {
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{ float: "right" }}>
                 <button className={styles.edit} onClick={() => handleEdit()}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
         }
     ];
@@ -66,13 +77,13 @@ function ListagemEPI() {
     }
 
     function showError(message) {
-        return <Message showIcon type="error" closable>
+        return <Message showIcon type="error" closable className={styles.alert}>
             <strong>Error!</strong> {message}
         </Message>
     }
 
     function showSuccess(message) {
-        return <Message showIcon type="success" closable>
+        return <Message showIcon type="success" closable className={styles.alert}>
             <strong>Success!</strong> {message}
         </Message>
     }
@@ -134,6 +145,22 @@ function ListagemEPI() {
                         Ok
                     </Button>
                     <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+            <Modal backdrop="static" role="alertdialog" open={openDelete} onClose={handleCloseDelete} size="xs">
+                <Modal.Body>
+                    <RemindIcon style={{ color: 'red', fontSize: 24, marginRight: "5%" }} />
+                    Você tem certeza que deseja deletar esse item?
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleCloseDelete} appearance="primary" color="red">
+                        Delete
+                    </Button>
+                    <Button onClick={handleCloseDelete} appearance="subtle">
                         Cancel
                     </Button>
                 </Modal.Footer>

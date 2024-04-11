@@ -25,13 +25,13 @@ function NewMaquina() {
     const handleClose = () => setOpen(false);
 
     function showError(message) {
-        return <Message showIcon type="error" closable>
+        return <Message showIcon type="error" closable className={styles.alert}>
             <strong>Error!</strong> {message}
         </Message>
     }
 
     function showSuccess(message) {
-        return <Message showIcon type="success" closable>
+        return <Message showIcon type="success" closable className={styles.alert}>
             <strong>Success!</strong> {message}
         </Message>
     }
