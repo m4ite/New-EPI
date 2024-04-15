@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route exact path='/' element={<Login />} />
         <Route path='/ListagemEPI' element={<ListagemEPI />} />
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
@@ -28,7 +29,6 @@ function App() {
         <Route path='/Search' element={<Search />} />
         <Route path='/Map' element={<Map />} />
         <Route path='/Removes' element={<Removes />} />
-        <Route exact path='/' element={<Login />} />
         <Route path='/loading' element={<Loading />} />
 
       </Routes>
