@@ -39,14 +39,14 @@ function NewMaquina() {
     }, [])
 
     function showError(message) {
-        return <Message showIcon type="error">
+        return <Message showIcon type="error" closable className={styles.alert}>
             <strong>Error!</strong> {message}
         </Message>
     }
 
     function showSuccess(message) {
-        return <Message showIcon type="success">
-            <strong>Success!</strong> You can use the `Message` component to display a success message.
+        return <Message showIcon type="success" closable className={styles.alert}>
+            <strong>Success!</strong> {message}
         </Message>
     }
 
@@ -57,7 +57,7 @@ function NewMaquina() {
         <>
 
             {showError("Erro ao cadastrar máquina")}
-            {showSuccess("Erro ao cadastrar máquina")}
+            {showSuccess("Máquina cadastrada com sucesso!")}
 
             <Nav />
 

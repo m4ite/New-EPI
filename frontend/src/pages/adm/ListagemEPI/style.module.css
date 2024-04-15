@@ -1,11 +1,4 @@
 .new{
-    font-size: 2vw;
-    padding: .5%;
-    width: 10%;
-    justify-content: space-around;
-    color: black;
-    border-radius: 1vw;
-    border: 1px solid rgb(219, 219, 219);
     position: fixed;
     right: 3vw;
 }
@@ -68,4 +61,9 @@
     font-weight: bold;
     text-align: center;
     font-size: 1.5vw;
+}
+
+.alert{
+    position: absolute;
+    width: 100%;
 }
