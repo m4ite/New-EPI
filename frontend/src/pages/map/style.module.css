@@ -1,13 +1,66 @@
-.map{
-    width: 50%;
-    margin: auto;
-  display: block;
-}
-
 .t{
   font-weight: 700;
   font-size: x-large;
   text-align: center;
   margin-bottom: 2em;
   margin-top: 2em;
+}
+
+.btt{
+  position: relative;
+  background-color: rgb(156, 156, 156);
+  color: #C5E90B;
+  font-size: .8vw;
+  transition: 0.2s;
+  display: flex;
+  border: 1px solid white;
+  transform: translate(-50%, -50%);
+
+}
+
+.barracao210{
+  composes: btt;
+  top: 48%;
+  left: 50%;
+}
+
+.barracao201{
+  composes: btt;
+  top: 60%;
+  left: 50%;
+}
+
+.barracao401{
+  composes: btt;
+  top: 32%;
+  left: 52%;
+}
+
+.barracao303{
+  composes: btt;
+  top: 25%;
+  left: 65%;
+}
+
+.barracao101{
+  composes: btt;
+  top: 50%;
+  left: 63%;
+}
+
+.location{
+  color: white;
+  font-size: .5vw;
+  margin-left: .2vw;
+}
+
+.mapa{
+  background-image: url("./map.png");
+  width: 900px;
+  height: 604.6px;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }

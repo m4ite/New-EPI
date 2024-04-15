@@ -10,20 +10,26 @@ import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-
+import { Button, Modal, Form, Message, ButtonToolbar, IconButton } from 'rsuite';
 import { useNavigate } from "react-router-dom";
-import { Button, Modal, Form } from 'rsuite';
+
+import PlusIcon from '@rsuite/icons/Plus';
+import RemindIcon from '@rsuite/icons/legacy/Remind';
 
 
 function ListagemEPI() {
 
     const Navigate = useNavigate();
 
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
+
+    const [openDelete, setOpenDelete] = useState(false);
+    const handleOpenDelete = () => setOpenDelete(true);
+
+
 
     const [editar, setEditar] = useState();
     function handleEdit() {
@@ -31,9 +37,13 @@ function ListagemEPI() {
         setEditar(true)
     }
 
-    const handleClose = () =>{
+    const handleClose = () => {
         setOpen(false)
         setEditar(false)
+    }
+
+    const handleCloseDelete = () =>{
+        setOpenDelete(false)
     }
 
     const nodes = [
@@ -43,45 +53,9 @@ function ListagemEPI() {
             proxima: new Date(2020, 1, 15),
             buttons: <div style={{ float: "right" }}>
                 <button className={styles.edit} onClick={() => handleEdit()}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
+                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
-        },
-        // {
-        //     id: '1',
-        //     name: 'Protetor auricular',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '2',
-        //     name: 'Óculos',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '3',
-        //     name: 'Camisa manga longa',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // },
-        // {
-        //     id: '4',
-        //     name: 'Camisa manga curta',
-        //     proxima: new Date(2020, 1, 15),
-        //     buttons: <div style={{ float: "right" }}>
-        //         <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-        //         <button className={styles.delete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        //     </div>
-        // }
+        }
     ];
     const data = { nodes };
     const theme = useTheme(getTheme());
@@ -101,14 +75,29 @@ function ListagemEPI() {
     function onPaginationChange(action, state) {
         console.log(action, state);
     }
+
+    function showError(message) {
+        return <Message showIcon type="error" closable className={styles.alert}>
+            <strong>Error!</strong> {message}
+        </Message>
+    }
+
+    function showSuccess(message) {
+        return <Message showIcon type="success" closable className={styles.alert}>
+            <strong>Success!</strong> {message}
+        </Message>
+    }
+
     return (
         <>
+            {showSuccess("EPI cadastrado com sucesso!")}
+
+            {showError("Falha ao cadastrar EPI!")}
             <Nav />
 
-            <Button className={styles.new} onClick={handleOpen} href="#">
-                <FontAwesomeIcon icon={faPlus} />
-                novo EPI
-            </Button>
+            <ButtonToolbar className={styles.new} >
+                <IconButton onClick={handleOpen} icon={<PlusIcon />}>Add EPI</IconButton>
+            </ButtonToolbar>
 
 
             <div className={styles.rec}>
@@ -156,6 +145,22 @@ function ListagemEPI() {
                         Ok
                     </Button>
                     <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+            <Modal backdrop="static" role="alertdialog" open={openDelete} onClose={handleCloseDelete} size="xs">
+                <Modal.Body>
+                    <RemindIcon style={{ color: 'red', fontSize: 24, marginRight: "5%" }} />
+                    Você tem certeza que deseja deletar esse item?
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleCloseDelete} appearance="primary" color="red">
+                        Delete
+                    </Button>
+                    <Button onClick={handleCloseDelete} appearance="subtle">
                         Cancel
                     </Button>
                 </Modal.Footer>

@@ -1,16 +1,14 @@
 import styles from "./style.module.css"
-import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-import { Form, TagPicker, Modal, Button } from 'rsuite'
+import { Form, TagPicker, Modal, Button, Message } from 'rsuite'
 import Select from 'react-select'
 
 function NewMaquina() {
 
-    const Navigate = useNavigate()
 
     const options1 = [
         { value: 'chocolate', label: 'Chocolate' },
@@ -26,9 +24,27 @@ function NewMaquina() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    function showError(message) {
+        return <Message showIcon type="error" closable className={styles.alert}>
+            <strong>Error!</strong> {message}
+        </Message>
+    }
+
+    function showSuccess(message) {
+        return <Message showIcon type="success" closable className={styles.alert}>
+            <strong>Success!</strong> {message}
+        </Message>
+    }
+
+    
     return (
         <>
+
+            {showError("Erro ao cadastrar máquina")}
+            {showSuccess("Máquina cadastrada com sucesso!")}
+
             <Nav />
+
             <p className={styles.t}>Cadastrar Máquina</p>
             <Form className={styles.form}>
                 <Form.Group controlId="email">
@@ -50,6 +66,8 @@ function NewMaquina() {
                 <button className={styles.cadastrar} onClick={handleOpen} >Cadastrar</button>
             </div>
 
+
+
             <Footer />
 
 
@@ -59,13 +77,13 @@ function NewMaquina() {
                         <p className={styles.Label}>Protetor Auricular</p>
                         <div className={styles.line}>
                             <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla" className={styles.f}/>
+                            <Form.Control name="sla" className={styles.f} />
                         </div>
 
                         <p className={styles.Label}>Óculos</p>
                         <div className={styles.line}>
-                        <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla2" className={styles.f}/>
+                            <span className={styles.qtd}>Qtd</span>
+                            <Form.Control name="sla2" className={styles.f} />
                         </div>
                     </Form>
                 </Modal.Body>

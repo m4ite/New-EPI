@@ -11,6 +11,7 @@ import ListagemEPI from './pages/adm/ListagemEPI/ListagemEPI';
 import EditEPI from './pages/adm/EditEPI/EditEPI';
 import ListagemMaquina from './pages/adm/ListagemMaquinas/ListagemMaquina';
 import NewMaquina from './pages/adm/newMaquina/newMaquina';
+import Loading from './pages/loading/loading'
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path='/Map' element={<Map />} />
         <Route path='/Removes' element={<Removes />} />
         <Route exact path='/' element={<Login />} />
+        <Route path='/loading' element={<Loading />} />
+
       </Routes>
     </>
   );
