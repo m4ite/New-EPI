@@ -2,7 +2,6 @@ import styles from "./style.module.css"
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
-import { useState } from 'react';
 
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
@@ -18,40 +17,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function ListagemEPI() {
-
-    const [nodes, setMachines] = useState([])
-    
-    async function CallEpis() {
-        try {
-            const response = await axios.get('http://localhost:8080/epis');
-            setMachines(response.data)
-        } catch (error) {
-            console.error(error.message);
-        }
-    }
-    
-    useEffect(() => {
-        CallEpis()
-    }, [])
 
 
 function ListagemEPI() {
+
+    const [epi, setEpi] = useState({
+        nome:"",
+        prazo:""
+    })
+
+    const [nodes, setMachines] = useState([
+
+    ])
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-
     const [editar, setEditar] = useState();
-    function handleEdit() {
-        setOpen(true)
-        setEditar(true)
-    }
-
-    const handleClose = () =>{
-        setOpen(false)
-        setEditar(false)
-    }
-
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {
@@ -63,12 +44,49 @@ function ListagemEPI() {
         { label: 'Tempo de Retirada', renderCell: (item) => item.Days_time },
         { label: ' ', renderCell: (item) => item.buttons },
     ];
+    const toaster = useToaster();
+
+    useEffect(() => {
+        CallEpis()
+    }, [])
+
+    async function CallEpis() {
+        try {
+            const response = await axios.get('http://localhost:8080/epis');
+            setMachines(response.data)
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    async function AddClose() {
+        setEditar(false)
+        try{
+            const response = await axios.post('http://localhost:8080/epis', epi)
+            if (response.status == 200){
+                console.log("adicionou")
+                setOpen(false)
+            }
+
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    function handleEdit() {
+        setOpen(true)
+        setEditar(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+        setEditar(false)
+    }
+
 
     function onPaginationChange(action, state) {
         console.log(action, state);
     }
-
-    const toaster = useToaster();
 
     function showError(message) {
         return <Message showIcon type="error" closable>
@@ -125,18 +143,18 @@ function ListagemEPI() {
                 </Modal.Title>
 
                 <Modal.Body>
-                    <Form className={styles.forms} fluid>
+                    <Form className={styles.forms} fluid onChange={setEpi}>
 
                         <p className={styles.Label}>Nome</p>
-                        <Form.Control name="nome" className={styles.f} />
+                        <Form.Control name="nome" className={styles.f}/>
 
                         <p className={styles.Label}>Prazo para retirada:  <span className={styles.dias}>(dias)</span></p>
-                        <Form.Control name="prazo" className={styles.f} />
+                        <Form.Control name="prazo" className={styles.f}/>
 
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleClose} appearance="primary">
+                    <Button onClick={() => AddClose()} appearance="primary">
                         Ok
                     </Button>
                     <Button onClick={handleClose} appearance="subtle">
@@ -146,7 +164,6 @@ function ListagemEPI() {
             </Modal>
         </>
     )
-}
 }
 
 export default ListagemEPI

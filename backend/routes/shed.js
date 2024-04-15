@@ -3,9 +3,9 @@ const [getSheds, addShed, deleteShed] = require("../controllers/shed.js")
 
 const router = express.Router()
 
-router.get("/epis", getSheds)
-router.post("/epis", addShed)
-router.delete("/epis", deleteShed)
+router.get("/sheds", getSheds)
+router.post("/sheds", addShed)
+router.delete("/sheds", deleteShed)
 
 // router.post("/", addUser)
 

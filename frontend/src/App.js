@@ -20,7 +20,6 @@ function App() {
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
         <Route path='/NewMaquina' element={<NewMaquina />} />
-        <Route path='/NewMaquina2' element={<NewMaquina2 />} />
         <Route path='/MaquinaEPI/:id' element={<MaquinaEPI />} />
         <Route path='/HomeADM' element={<HomeADM />} />
         <Route path='/Home' element={<Home />} />

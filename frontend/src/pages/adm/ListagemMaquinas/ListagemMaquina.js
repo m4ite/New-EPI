@@ -30,54 +30,7 @@ function ListagemMaquina() {
         CallMachines()
     }, [])
 
-    // const nodes = [
-    //     {
-    //         codigo: "544354",
-    //         localização: 'Ct 401',
-    //         status: "ok",
-    //         buttons: <div style={{ float: "right" }}>
-    //             <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-    //             <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
-    //         </div>
-    //     },
-    //     {
-    //         codigo: "544354",
-    //         localização: 'Ct 401',
-    //         status: "ok",
-    //         buttons: <div style={{ float: "right" }}>
-    //             <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-    //             <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
-    //         </div>
-    //     },
-    //     {
-    //         codigo: "544354",
-    //         localização: 'Ct 401',
-    //         status: "ok",
-    //         buttons: <div style={{ float: "right" }}>
-    //             <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-    //             <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
-    //         </div>
-    //     },
-    //     {
-    //         codigo: "544354",
-    //         localização: 'Ct 401',
-    //         status: "ok",
-    //         buttons: <div style={{ float: "right" }}>
-    //             <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-    //             <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
-    //         </div>
-    //     },
-    //     {
-    //         codigo: "544354",
-    //         localização: 'Ct 401',
-    //         status: "ok",
-    //         buttons: <div style={{ float: "right" }}>
-    //             <button className="edit" onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-    //             <button className="delete"><FontAwesomeIcon icon={faTrashCan} /></button>
-    //         </div>
-    //     },
-    // ];
-
+    
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {

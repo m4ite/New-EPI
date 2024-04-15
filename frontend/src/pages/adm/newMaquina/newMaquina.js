@@ -1,30 +1,42 @@
 import styles from "./style.module.css"
-import { useNavigate } from "react-router-dom"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
 import { Form, TagPicker, Modal, Button, Message } from 'rsuite'
 import Select from 'react-select'
-
+import axios from "axios"
 function NewMaquina() {
-
-    const Navigate = useNavigate()
-
-    const options1 = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
-
-    const data = ['Oculos', 'Botina', 'Protetor Auricular', 'Luva Latex'].map(
-        item => ({ label: item, value: item })
-    );
-
+    const [epi, setEpi] = useState([])
+    const [shed, setShed] = useState([])
     const [open, setOpen] = useState(false);
+    const [epiList, setList] = useState([])
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+
+    // const data = ['Oculos', 'Botina', 'Protetor Auricular', 'Luva Latex'].map(
+    //     item => ({ label: item, value: item })
+    // );
+
+    const handleSelect = (value, item, event) => {
+        console.log(value)
+        setList(value);   
+    };
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/epis`)
+        .then( (res) => { setEpi(res.data) })
+        .catch((er) => console.error(er.message))
+
+    }, [])
+    
+    useEffect(() => {
+        axios.get(`http://localhost:8080/sheds`)
+        .then( (res) => { setShed(res.data) })
+        .catch((er) => console.error(er.message))
+    }, [])
 
     function showError(message) {
         return <Message showIcon type="error">
@@ -38,13 +50,14 @@ function NewMaquina() {
         </Message>
     }
 
+    const a = epi.map((item) => ({label: item.EPI_Name, value: item.ID}) )
+    const b = shed.map((item) => ({label: item.Shed_Name, value: item.ID}) )
     
     return (
         <>
 
             {showError("Erro ao cadastrar máquina")}
             {showSuccess("Erro ao cadastrar máquina")}
-
 
             <Nav />
 
@@ -57,12 +70,12 @@ function NewMaquina() {
 
                 <Form.Group>
                     <Form.ControlLabel>EPI</Form.ControlLabel>
-                    <TagPicker data={data} style={{ width: 300 }} />
+                    <TagPicker data={a} style={{ width: 300 }} onSelect={handleSelect}/>
                 </Form.Group>
 
                 <Form.Group controlId="name">
                     <Form.ControlLabel>Barracão</Form.ControlLabel>
-                    <Select options={options1} className={styles.select} />
+                    <Select options={b} className={styles.select} />
                 </Form.Group>
             </Form>
             <div className={styles.btt}>

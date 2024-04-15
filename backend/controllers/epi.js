@@ -16,8 +16,8 @@ const addEPI = (req, res) => {
       "INSERT INTO EPI(`EPI_Name`, `Days_time`) VALUES(?)";
   
     const values = [
-      req.body.Epi_Name,
-      req.body.Days_time
+      req.body.nome,
+      req.body.prazo
     ];
   
     db.query(q, [values], (err) => {
