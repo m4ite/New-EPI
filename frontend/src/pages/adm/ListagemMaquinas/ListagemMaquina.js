@@ -3,34 +3,24 @@ import styles from "../ListagemMaquinas/style.module.css"
 import Nav from "../../../components/nav"
 import Footer from "../../../components/footer"
 
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
-=======
-import { useState } from 'react';
-
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
 import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from "@table-library/react-table-library/theme";
 import { getTheme } from "@table-library/react-table-library/baseline";
 import { usePagination } from "@table-library/react-table-library/pagination";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-<<<<<<< HEAD
-import { faPlus} from '@fortawesome/free-solid-svg-icons';
-import axios from "axios";
-import { Button } from 'rsuite';
-=======
 import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { ButtonToolbar, IconButton, Modal, Button } from 'rsuite';
 
 import PlusIcon from '@rsuite/icons/Plus';
 import RemindIcon from '@rsuite/icons/legacy/Remind';
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
+import axios from "axios"
 
+import { useNavigate } from "react-router-dom";
 
 function ListagemMaquina() {
     const [nodes, setMachines] = useState([])
 
-<<<<<<< HEAD
     async function CallMachines() {
         try {
             const response = await axios.get('http://localhost:8080/machine');
@@ -45,7 +35,6 @@ function ListagemMaquina() {
     }, [])
 
     
-=======
     const Navigate = useNavigate();
 
     const b = () => {
@@ -55,51 +44,6 @@ function ListagemMaquina() {
         </div>)
     }
 
-    const nodes = [
-        {
-            codigo: "544354",
-            localização: 'Ct 401',
-            status: "ok",
-            buttons: b()
-        },
-        {
-            codigo: "544354",
-            localização: 'Ct 401',
-            status: "ok",
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            codigo: "544354",
-            localização: 'Ct 401',
-            status: "ok",
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            codigo: "544354",
-            localização: 'Ct 401',
-            status: "ok",
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-        {
-            codigo: "544354",
-            localização: 'Ct 401',
-            status: "ok",
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => Navigate("/EditEPI")}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        },
-    ];
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {
@@ -112,9 +56,6 @@ function ListagemMaquina() {
         // { label: ' ', renderCell: (item) => item.buttons },
     ];
 
-<<<<<<< HEAD
-=======
-
     function onPaginationChange(action, state) {
         console.log(action, state);
     }
@@ -125,7 +66,6 @@ function ListagemMaquina() {
         setOpenDelete(false)
     }
 
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
     return (
         <>
             <Nav />

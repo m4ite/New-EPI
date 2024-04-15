@@ -16,11 +16,7 @@ function App() {
   return (
     <>
       <Routes>
-<<<<<<< HEAD
-        <Route path='/' element={<Login />} />
-=======
         <Route exact path='/' element={<Login />} />
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
         <Route path='/ListagemEPI' element={<ListagemEPI />} />
         <Route path='/EditEPI' element={<EditEPI />} />
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
@@ -31,11 +27,6 @@ function App() {
         <Route path='/Search' element={<Search />} />
         <Route path='/Map' element={<Map />} />
         <Route path='/Removes' element={<Removes />} />
-<<<<<<< HEAD
-=======
-        <Route path='/loading' element={<Loading />} />
-
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
       </Routes>
     </>
   );
