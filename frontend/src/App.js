@@ -12,9 +12,14 @@ import ListagemMaquina from './pages/adm/ListagemMaquinas/ListagemMaquina';
 import NewMaquina from './pages/adm/newMaquina/newMaquina';
 import Loading from './pages/loading/loading'
 
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
+
 function App() {
   return (
     <>
+    <SpeedInsights/>
+    <Analytics/>
       <Routes>
         <Route exact path='/' element={<Login />} />
         <Route path='/ListagemEPI' element={<ListagemEPI />} />
