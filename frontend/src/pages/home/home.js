@@ -4,7 +4,7 @@ import NavHome from "../../components/navHome"
 import Footer from "../../components/footer"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapLocationDot, faMagnifyingGlass, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { faMapLocationDot, faMagnifyingGlass, faClockRotateLeft, faShirt } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
     return (
@@ -25,6 +25,11 @@ function Home() {
                 <a href="Removes" className={styles.button}>
                     <FontAwesomeIcon icon={faClockRotateLeft}/>
                     <p>Retiradas</p>
+                </a>
+
+                <a href="Uniformes" className={styles.button}>
+                <FontAwesomeIcon icon={faShirt} />
+                    <p>Uniformes</p>
                 </a>
             </div>
 

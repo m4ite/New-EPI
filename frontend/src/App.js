@@ -11,7 +11,9 @@ import ListagemEPI from './pages/adm/ListagemEPI/ListagemEPI';
 import EditEPI from './pages/adm/EditEPI/EditEPI';
 import ListagemMaquina from './pages/adm/ListagemMaquinas/ListagemMaquina';
 import NewMaquina from './pages/adm/newMaquina/newMaquina';
+import Uniforme from './pages/uniforme/uniforme';
 import Loading from './pages/loading/loading'
+import HistoricoSolicitacoes from './pages/historicoSolicitacoes/historicoSolicitacoes';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path='/ListagemMaquina' element={<ListagemMaquina />} />
         <Route path='/NewMaquina' element={<NewMaquina />} />
         <Route path='/MaquinaEPI' element={<MaquinaEPI />} />
+        <Route path='/Uniformes' element={<Uniforme/>}/>
+        <Route path='/historicoSolicitacoes' element={<HistoricoSolicitacoes/>}/>
 
         <Route path='/HomeADM' element={<HomeADM />} />
         <Route path='/Home' element={<Home />} />
