@@ -3,80 +3,136 @@ import Footer from "../../components/footer"
 
 import styles from "./style.module.css"
 
-import { CompactTable } from '@table-library/react-table-library/compact';
-import { useTheme } from "@table-library/react-table-library/theme";
-import { getTheme } from "@table-library/react-table-library/baseline";
-import { usePagination } from "@table-library/react-table-library/pagination";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { Button, Steps, Table, Pagination, FlexboxGrid } from 'rsuite';
 
-function HistoricoSolicitacoes(){
+import { useState } from 'react';
+
+function HistoricoSolicitacoes() {
+
+    const [limit, setLimit] = useState(5);
+    const [page, setPage] = useState(1);
+
+    const { Column, HeaderCell, Cell } = Table;
+
+    const handleChangeLimit = dataKey => {
+        setPage(1);
+        setLimit(dataKey);
+    };
 
     const nodes = [
         {
             id: '0',
+            data: '25/05/2024',
             name: 'Luva de Latex',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15),
-            local: "Ct401"
+            retirada: "Ct401",
+            status: 0
         },
         {
             id: '1',
-            name: 'Protetor auricular',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15),
-            local: "Ct401"
-        },
-        {
+            data: '25/05/2024',
+            name: 'Luva de Latex',
+            retirada: "Ct401",
+            status: 1
+        }, {
             id: '2',
-            name: 'Óculos',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15),
-            local: "Ct401"
+            data: '25/05/2024',
+            name: 'Luva de Latex',
+            retirada: "Ct401",
+            status: 2
         },
-        {
-            id: '3',
-            name: 'Camisa manga longa',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15),
-            local: "Ct401"
-        },
-        {
-            id: '4',
-            name: 'Camisa manga curta',
-            ultima: new Date(2020, 1, 15),
-            proxima: new Date(2020, 1, 15),
-            local: "Ct401"
-        }
     ];
-    const data = { nodes };
 
-    const theme = useTheme(getTheme());
-    const pagination = usePagination(data, {
-        state: { page: 0, size: 5, },
-        onChange: onPaginationChange,
+    const data = nodes.filter((v, i) => {
+        const start = limit * (page - 1);
+        const end = start + limit;
+        return i >= start && i < end;
     });
 
-    function onPaginationChange(action, state) {
-        console.log(action, state);
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const styleHeader={
+        fontSize: "15px", fontWeight: 700, color: "black"
     }
 
-    const COLUMNS = [
-        {
-            label: 'Ultima Retirada', renderCell: (item) =>
-                item.ultima.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', })
-        },
-        { label: 'Item', renderCell: (item) => item.name },
-        {
-            label: 'Proxima Retirada', renderCell: (item) =>
-                item.proxima.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', }),
-        },
-        { label: 'Local', renderCell: (item) => item.local },
-    ];
-
-    
-    return(
+    return (
         <>
-            <Nav/>
-            <Footer/>
+            <Nav />
+            <p className={styles.t}>Histórico de solicitações</p>
+
+            <div className={styles.rec}>
+                <Button className={styles.filter} onClick={handleOpen}><FontAwesomeIcon icon={faFilter} /></Button>
+               
+                        <Table data={data} hover={true} rowHeight={60} height={400}>
+                            <Column width={150} >
+                                <HeaderCell style={styleHeader}>Data</HeaderCell>
+                                <Cell dataKey="data" />
+                            </Column>
+
+                            <Column width={150}>
+                                <HeaderCell style={styleHeader}>Item</HeaderCell>
+                                <Cell dataKey="name" />
+                            </Column>
+
+                            <Column width={150}>
+                                <HeaderCell style={styleHeader}>Local de Retirada</HeaderCell>
+                                <Cell dataKey="retirada" />
+                            </Column>
+
+                            <Column width={400} align="center" flexGrow={1}>
+                                <HeaderCell style={styleHeader}>Status</HeaderCell>
+                                <Cell dataKey="status">
+                                    {rowData => (
+
+                                        <Steps current={rowData.status}>
+                                            <Steps.Item title="Preparando" />
+                                            <Steps.Item title="Entregue" />
+                                            <Steps.Item title="Retirado" />
+                                        </Steps>
+
+                                    )}
+                                </Cell>
+                            </Column>
+
+
+                            <Column width={150} fixed="right">
+                                <HeaderCell></HeaderCell>
+
+                                <Cell style={{ padding: '6px' }}>
+                                    {rowData => (
+                                        <Button onClick={() => alert(`id:${rowData.id}`)}>
+                                            Confirmar entrega
+                                        </Button>
+                                    )}
+                                </Cell>
+                            </Column>
+                        </Table>
+              
+                <div className={styles.pages}>
+                    <Pagination
+                        prev
+                        next
+                        first
+                        last
+                        ellipsis
+                        boundaryLinks
+                        maxButtons={5}
+                        size="xs"
+                        layout={['pager']}
+                        total={nodes.length}
+                        limitOptions={[10, 30, 50]}
+                        limit={limit}
+                        activePage={page}
+                        onChangePage={setPage}
+                        onChangeLimit={handleChangeLimit}
+                    />
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }
