@@ -11,31 +11,44 @@ function NewMaquina() {
     const [epi, setEpi] = useState([])
     const [shed, setShed] = useState([])
     const [open, setOpen] = useState(false);
+    const [insertShed, setInsert] = useState([])
     const [epiList, setList] = useState([])
+    const [epiQtt, setQtt] = useState({
+        epiId : [],
+        qtt : [],
+        shedId : ''
+    })
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
-
-    // const data = ['Oculos', 'Botina', 'Protetor Auricular', 'Luva Latex'].map(
-    //     item => ({ label: item, value: item })
-    // );
-
-    const handleSelect = (value, item, event) => {
-        console.log(value)
-        setList(value);   
+    const handleSelect = (value) => {
+        var epis = []
+        epi.forEach(ele => {
+            if (value.includes(ele.ID)) {
+                epis.push(ele)
+            }
+        });
+        setList(epis);
     };
+
+    function handleSetQuantity(ep, qtt){
+        console.log(ep, "---", qtt)
+    }
+
+    function handleClose() {
+        axios.post(`http://localhost:8080/machineEpi/:${insertShed}/:${epiList}`)
+        setOpen(false)
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:8080/epis`)
-        .then( (res) => { setEpi(res.data) })
-        .catch((er) => console.error(er.message))
-
+            .then((res) => { setEpi(res.data) })
+            .catch((er) => console.error(er.message))
     }, [])
-    
+
     useEffect(() => {
         axios.get(`http://localhost:8080/sheds`)
-        .then( (res) => { setShed(res.data) })
-        .catch((er) => console.error(er.message))
+            .then((res) => { setShed(res.data) })
+            .catch((er) => console.error(er.message))
     }, [])
 
     function showError(message) {
@@ -50,12 +63,11 @@ function NewMaquina() {
         </Message>
     }
 
-    const a = epi.map((item) => ({label: item.EPI_Name, value: item.ID}) )
-    const b = shed.map((item) => ({label: item.Shed_Name, value: item.ID}) )
-    
+    const a = epi.map((item) => ({ label: item.EPI_Name, value: item.ID }))
+    const b = shed.map((item) => ({ label: item.Shed_Name, value: item.ID }))
+
     return (
         <>
-
             {showError("Erro ao cadastrar máquina")}
             {showSuccess("Máquina cadastrada com sucesso!")}
 
@@ -70,37 +82,43 @@ function NewMaquina() {
 
                 <Form.Group>
                     <Form.ControlLabel>EPI</Form.ControlLabel>
-                    <TagPicker data={a} style={{ width: 300 }} onSelect={handleSelect}/>
+                    <TagPicker data={a} style={{ width: 300 }} onSelect={handleSelect} />
                 </Form.Group>
 
                 <Form.Group controlId="name">
                     <Form.ControlLabel>Barracão</Form.ControlLabel>
-                    <Select options={b} className={styles.select} />
+                    <Select
+                        options={b}
+                        className={styles.select}
+                        onChange={e => setInsert(e.value)}
+                    />
                 </Form.Group>
             </Form>
             <div className={styles.btt}>
                 <button className={styles.cadastrar} onClick={handleOpen} >Cadastrar</button>
             </div>
 
-
-
             <Footer />
-
 
             <Modal open={open} onClose={handleClose} >
                 <Modal.Body>
-                    <Form className={styles.forms} fluid>
-                        <p className={styles.Label}>Protetor Auricular</p>
-                        <div className={styles.line}>
-                            <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla" className={styles.f} />
-                        </div>
-
-                        <p className={styles.Label}>Óculos</p>
-                        <div className={styles.line}>
-                            <span className={styles.qtd}>Qtd</span>
-                            <Form.Control name="sla2" className={styles.f} />
-                        </div>
+                    <Form className={styles.forms} fluid formValue={epiQtt}>{
+                        epiList.map(element => {
+                            console.log(element)
+                            return (
+                                <div key={element.ID}>
+                                    <p className={styles.Label}>{element.EPI_Name}</p>
+                                    <div className={styles.line}>
+                                        <span className={styles.qtd}>Qtd{element.ID}</span>
+                                        <Form.Control
+                                            name={element.ID}
+                                            className={styles.f}
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

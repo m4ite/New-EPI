@@ -12,34 +12,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import { Button, Modal, Form, Message, ButtonToolbar, IconButton } from 'rsuite';
-import { useNavigate } from "react-router-dom";
 
 import PlusIcon from '@rsuite/icons/Plus';
 import RemindIcon from '@rsuite/icons/legacy/Remind';
-
-import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 
 
 function ListagemEPI() {
+    const [nodes, setMachines] = useState([])
 
-<<<<<<< HEAD
     const [epi, setEpi] = useState({
         nome:"",
         prazo:""
     })
-
-    const [nodes, setMachines] = useState([
-
-    ])
-
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const [editar, setEditar] = useState();
-=======
-    const Navigate = useNavigate();
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -63,19 +50,6 @@ function ListagemEPI() {
     const handleCloseDelete = () =>{
         setOpenDelete(false)
     }
-
-    const nodes = [
-        {
-            id: '0',
-            name: 'Luva de Latex',
-            proxima: new Date(2020, 1, 15),
-            buttons: <div style={{ float: "right" }}>
-                <button className={styles.edit} onClick={() => handleEdit()}><FontAwesomeIcon icon={faPencil} /></button>
-                <button className={styles.delete} onClick={() => handleOpenDelete()}><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-        }
-    ];
->>>>>>> 65df20780b9b05d4845f322b2b4d49b224c72703
     const data = { nodes };
     const theme = useTheme(getTheme());
     const pagination = usePagination(data, {
@@ -87,7 +61,6 @@ function ListagemEPI() {
         { label: 'Tempo de Retirada', renderCell: (item) => item.Days_time },
         { label: ' ', renderCell: (item) => item.buttons },
     ];
-    const toaster = useToaster();
 
     useEffect(() => {
         CallEpis()
@@ -119,11 +92,6 @@ function ListagemEPI() {
     function handleEdit() {
         setOpen(true)
         setEditar(true)
-    }
-
-    const handleClose = () => {
-        setOpen(false)
-        setEditar(false)
     }
 
 
