@@ -10,7 +10,6 @@ const getEPI = (_, res) => {
     })
 }
 
-
 const addEPI = (req, res) => {
     const q =
       "INSERT INTO EPI(`EPI_Name`, `Days_time`) VALUES(?)";
@@ -26,7 +25,6 @@ const addEPI = (req, res) => {
       return res.status(200).json("EPI inserido com sucesso.");
     });
   };
-
 
 const deleteEPI = (req, res) => {
     const q =

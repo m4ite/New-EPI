@@ -6,7 +6,7 @@ const getMachine = (_, res) => {
         Machine.Machine_code AS codigo,
         Shed.Shed_Name AS localização,
         CASE
-            WHEN Stock.Quantity < 5 THEN 'Baixo Estoque'
+            WHEN Stock.Quantity < 20 THEN 'Necessária'
             ELSE 'Normal'
         END AS status
         FROM
@@ -21,19 +21,24 @@ const getMachine = (_, res) => {
 }
 
 const addMachine = (req, res) => {
-    const q =
-        "INSERT INTO Machine(`Shed_ID`, `Quantity`) VALUES(?)";
+    const shedId = req.params.shedId
+    const epiList = req.params.epiList
+    console.log(shedId)
+    console.log(epiList)
 
-    const values = [
-        req.body.EPI_ID,
-        req.body.Quantity
-    ];
+    // const q =
+    //     "INSERT INTO Machine(`Shed_ID`, `Quantity`) VALUES(?)";
 
-    db.query(q, [values], (err) => {
-        if (err) return res.json(err);
+    // const values = [
+    //     req.body.EPI_ID,
+    //     req.body.Quantity
+    // ];
 
-        return res.status(200).json("Barracão criado com sucesso.");
-    });
+    // db.query(q, [values], (err) => {
+    //     if (err) return res.json(err);
+
+    //     return res.status(200).json("Barracão criado com sucesso.");
+    // });
 };
 
 const getMachineEPIS = (req, res) => {

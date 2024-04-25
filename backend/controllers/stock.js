@@ -41,4 +41,19 @@ const deleteStock = (req, res) => {
     });
 };
 
-module.exports = [getStock, addStock, deleteStock]
+const getMachineStock = (req, res) => {
+    const q = `
+    SELECT * FROM Stock
+    WHERE Machine_ID = (?)`
+
+    const values = [
+        req.body.ID
+    ]
+
+    db.query(q, [values], (err) => {
+        if (err) return res.json(err)
+
+        return res.status(200).json(res.data)
+    })
+}
+module.exports = [getStock, addStock, deleteStock, getMachineStock]
