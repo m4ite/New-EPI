@@ -12,7 +12,7 @@ import { useState } from 'react';
 import Select from 'react-select'
 
 
-function HistoricoSolicitacoes() {
+function AprovarSolicitacoes() {
 
     const [limit, setLimit] = useState(5);
     const [page, setPage] = useState(1);
@@ -165,4 +165,4 @@ function HistoricoSolicitacoes() {
     )
 }
 
-export default HistoricoSolicitacoes
+export default AprovarSolicitacoes

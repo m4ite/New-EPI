@@ -22,6 +22,11 @@ function HomeADM() {
                     <img src={Maquina} className={styles.image}/>
                     <p>Máquina</p>
                 </a>
+
+                <a href="ListagemMaquina" className={styles.button}>
+                    <img src={Maquina} className={styles.image}/>
+                    <p>Solicitações</p>
+                </a>
             </div>
 
             <Footer />
