@@ -1,5 +1,5 @@
-import Nav from "../../components/nav"
-import Footer from "../../components/footer"
+import Nav from "../../../components/nav"
+import Footer from "../../../components/footer"
 
 import styles from "./style.module.css"
 
@@ -114,7 +114,7 @@ function AprovarSolicitacoes() {
                                 <Cell style={{ padding: '6px' }}>
                                     {rowData => (
                                         <Button onClick={() => alert(`id:${rowData.id}`)}>
-                                            Confirmar entrega
+                                            Entregar
                                         </Button>
                                     )}
                                 </Cell>

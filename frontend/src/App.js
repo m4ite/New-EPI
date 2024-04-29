@@ -15,6 +15,7 @@ import Uniforme from './pages/uniforme/uniforme';
 import Loading from './pages/loading/loading'
 import HistoricoSolicitacoes from './pages/historicoSolicitacoes/historicoSolicitacoes';
 import AprovarSolicitacoes from './pages/adm/aprovarSolicitações/aprovarSolicitações';
+import EstoqueMaquina from './pages/adm/estoqueMaquinas/estoqueMaquinas';
 
 function App() {
   return (
@@ -35,8 +36,8 @@ function App() {
         <Route path='/Removes' element={<Removes />} />
         <Route exact path='/' element={<Login />} />
         <Route path='/loading' element={<Loading />} />
-        <Route path='/aprovar' element={<AprovarSolicitacoes />} />
-
+        <Route path='/Aprovar' element={<AprovarSolicitacoes />} />
+        <Route path='/estoqueMaquina' element={<EstoqueMaquina/>}/>
       </Routes>
     </>
   );

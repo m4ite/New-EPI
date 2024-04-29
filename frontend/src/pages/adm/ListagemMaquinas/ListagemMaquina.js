@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { Table, Pagination} from 'rsuite';
 
 
+import {useNavigate} from "react-router"
+
 function ListagemMaquina() {
 
     const [limit, setLimit] = useState(5);
@@ -59,13 +61,15 @@ function ListagemMaquina() {
         fontSize: "15px", fontWeight: 700, color: "black"
     }
 
+    const navigate = useNavigate()
+
     return (
         <>
             <Nav />
 
             <div className={styles.rec}>
                 <Table data={data} hover={true} rowHeight={60} height={400}
-                onRowClick={rowData => { console.log(rowData.codigo); }}>
+                onRowClick={rowData => { navigate() }}>
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Código</HeaderCell>
                         <Cell dataKey="codigo"/>
