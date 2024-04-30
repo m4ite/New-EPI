@@ -13,7 +13,7 @@ function HomeADM() {
         <>
             <NavHome />
             <div className={styles.buttons}>
-                <a href="ListagemEPI" className={styles.button}>
+                <a href="buscarEPI" className={styles.button}>
                     <FontAwesomeIcon icon={faHelmetSafety} />
                     <p>EPI</p>
                 </a>

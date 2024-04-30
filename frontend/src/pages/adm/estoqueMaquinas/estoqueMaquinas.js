@@ -28,13 +28,7 @@ function EstoqueMaquina() {
             id: "544354",
             epi: 'Luva de Látex',
             quantidade: 250,
-        },
-        {
-            id: "544354",
-            epi: 'Luva de Látex',
-            quantidade: 250,
-        },
-       
+        }       
     ];
 
     const data = nodes.filter((v, i) => {
@@ -51,6 +45,7 @@ function EstoqueMaquina() {
         <>
             <Nav />
             <div className={styles.rec}>
+                <p className={styles.t}>ID - Localização</p>
                 <Table data={data} hover={true} rowHeight={60} height={400}>
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>EPI</HeaderCell>
@@ -59,9 +54,29 @@ function EstoqueMaquina() {
 
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Quantidade</HeaderCell>
-                        <Cell dataKey="qtd"/>
+                        <Cell dataKey="quantidade"/>
                     </Column>
                 </Table>
+
+                <div className={styles.pages}>
+                    <Pagination
+                        prev
+                        next
+                        first
+                        last
+                        ellipsis
+                        boundaryLinks
+                        maxButtons={5}
+                        size="xs"
+                        layout={['pager']}
+                        total={nodes.length}
+                        limitOptions={[10, 30, 50]}
+                        limit={limit}
+                        activePage={page}
+                        onChangePage={setPage}
+                        onChangeLimit={handleChangeLimit}
+                    />
+                </div>
             </div>
             <Footer />
         </>

@@ -1,0 +1,18 @@
+.rec {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.pages {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+.t{
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }

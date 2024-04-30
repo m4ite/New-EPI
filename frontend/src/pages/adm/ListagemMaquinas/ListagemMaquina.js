@@ -69,7 +69,7 @@ function ListagemMaquina() {
 
             <div className={styles.rec}>
                 <Table data={data} hover={true} rowHeight={60} height={400}
-                onRowClick={rowData => { navigate() }}>
+                onRowClick={rowData => { navigate("/estoqueMaquina") }}>
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Código</HeaderCell>
                         <Cell dataKey="codigo"/>
@@ -85,6 +85,25 @@ function ListagemMaquina() {
                         <Cell dataKey="status"/>
                     </Column>
                 </Table>
+                <div className={styles.pages}>
+                    <Pagination
+                        prev
+                        next
+                        first
+                        last
+                        ellipsis
+                        boundaryLinks
+                        maxButtons={5}
+                        size="xs"
+                        layout={['pager']}
+                        total={nodes.length}
+                        limitOptions={[10, 30, 50]}
+                        limit={limit}
+                        activePage={page}
+                        onChangePage={setPage}
+                        onChangeLimit={handleChangeLimit}
+                    />
+                </div>
             </div>
 
             <Footer />
