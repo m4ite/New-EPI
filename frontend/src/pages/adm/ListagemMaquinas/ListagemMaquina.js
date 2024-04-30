@@ -5,10 +5,12 @@ import Footer from "../../../components/footer"
 
 import { useState } from 'react';
 
-import { Table, Pagination} from 'rsuite';
+import { Table, Pagination, IconButton } from 'rsuite';
 
 
-import {useNavigate} from "react-router"
+import { useNavigate } from "react-router"
+
+import MoreIcon from '@rsuite/icons/More';
 
 function ListagemMaquina() {
 
@@ -57,7 +59,7 @@ function ListagemMaquina() {
     });
 
 
-    const styleHeader={
+    const styleHeader = {
         fontSize: "15px", fontWeight: 700, color: "black"
     }
 
@@ -69,20 +71,30 @@ function ListagemMaquina() {
 
             <div className={styles.rec}>
                 <Table data={data} hover={true} rowHeight={60} height={400}
-                onRowClick={rowData => { navigate("/estoqueMaquina") }}>
+                    onRowClick={rowData => { navigate("/estoqueMaquina") }}>
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Código</HeaderCell>
-                        <Cell dataKey="codigo"/>
+                        <Cell dataKey="codigo" />
                     </Column>
 
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Localização</HeaderCell>
-                        <Cell dataKey="localização"/>
+                        <Cell dataKey="localização" />
                     </Column>
 
                     <Column width={180}>
                         <HeaderCell style={styleHeader}>Status</HeaderCell>
-                        <Cell dataKey="status"/>
+                        <Cell dataKey="status" />
+                    </Column>
+
+                    <Column width={150} fixed="right">
+                        <HeaderCell></HeaderCell>
+
+                        <Cell style={{ padding: '6px' }}>
+                            {rowData => (
+                                    <IconButton icon={<MoreIcon />} onClick={() => alert(`id:${rowData.id}`)}/>
+                            )}
+                        </Cell>
                     </Column>
                 </Table>
                 <div className={styles.pages}>
