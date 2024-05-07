@@ -10,7 +10,7 @@ function Map() {
         <>
             <Nav className={styles.screen}/>
 
-            <div className={styles.t}>Distribuição de máquinas na planta</div>
+            <div className={styles.t}>Pontos de distribuição</div>
             
             <div className={styles.mapa}>
                 <button className={styles.barracao210}>

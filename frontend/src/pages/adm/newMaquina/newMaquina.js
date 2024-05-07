@@ -30,10 +30,6 @@ function NewMaquina() {
         setList(epis);
     };
 
-    function handleSetQuantity(ep, qtt){
-        console.log(ep, "---", qtt)
-    }
-
     function handleClose() {
         axios.post(`http://localhost:8080/machineEpi/:${insertShed}/:${epiList}`)
         setOpen(false)
