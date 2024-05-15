@@ -29,7 +29,9 @@ function Uniforme() {
             User : user[0].ID
         }
 
-        axios.post(`http://localhost:8080/request`, request)
+        const req = axios.post(`http://localhost:8080/request`, request)
+
+        console.log(req)
     }
 
     return (

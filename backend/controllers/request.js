@@ -1,7 +1,7 @@
 const db = require("../db");
 
 const addRequest = (req, res) => {
-    const q = "INSERT INTO Requests (`Requests_Date`, `Requests_Status`, `Uniform_ID`, `User_ID`) VALUES (?)"
+    const q = "INSERT INTO Requests (`Request_Date`, `Request_Status`, `Uniform_ID`, `User_ID`) VALUES (?)"
 
     const dataAtual = new Date();
     const dataFormatada = `${dataAtual.getFullYear()}-${(dataAtual.getMonth() + 1).toString().padStart(2, '0')}-${dataAtual.getDate().toString().padStart(2, '0')}`;
@@ -14,7 +14,9 @@ const addRequest = (req, res) => {
         req.body.User
     ]
 
-    db.query(q, [values], (err) => {
+    console.log(values)
+
+    db.query(q, [values], (err, data) => {
         if (err) return res.json(err);
         return res.status(200).json(data)
     })

@@ -4,7 +4,7 @@ import NavHome from "../../../components/navHome"
 import Footer from "../../../components/footer"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHelmetSafety } from '@fortawesome/free-solid-svg-icons';
+import { faHelmetSafety, faListCheck } from '@fortawesome/free-solid-svg-icons';
 
 import Maquina from "./maquina.png"
 
@@ -13,14 +13,19 @@ function HomeADM() {
         <>
             <NavHome />
             <div className={styles.buttons}>
-                <a href="ListagemEPI" className={styles.button}>
+                <a href="buscarEPI" className={styles.button}>
                     <FontAwesomeIcon icon={faHelmetSafety} />
                     <p>EPI</p>
                 </a>
 
                 <a href="ListagemMaquina" className={styles.button}>
-                    <img src={Maquina} className={styles.image}/>
+                    <img src={Maquina} className={styles.image} />
                     <p>Máquina</p>
+                </a>
+
+                <a href="Aprovar" className={styles.button}>
+                <FontAwesomeIcon icon={faListCheck} />
+                    <p>Solicitações</p>
                 </a>
             </div>
 

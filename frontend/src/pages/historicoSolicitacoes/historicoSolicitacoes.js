@@ -5,10 +5,13 @@ import styles from "./style.module.css"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import { Button, Steps, Table, Pagination, FlexboxGrid } from 'rsuite';
+import { Button, Steps, Table, Pagination, Modal } from 'rsuite';
 
 import { useState, useEffect } from 'react';
 import axios from "axios";
+
+import Select from 'react-select'
+
 
 function HistoricoSolicitacoes() {
 
@@ -158,6 +161,25 @@ function HistoricoSolicitacoes() {
                 </div>
             </div>
             <Footer />
+
+
+            {/* <Modal open={open} onClose={handleClose}>
+                <Modal.Header>
+                    <Modal.Title style={{fontWeight: 700}}>Filtros</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <Modal.Title style={{marginBottom: "1em", marginTop: "2em"}}>Status</Modal.Title>
+                <Select options={options}/>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleClose} appearance="primary">
+                        Ok
+                    </Button>
+                    <Button onClick={handleClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal> */}
         </>
     )
 }

@@ -1,45 +1,69 @@
 const db = require("../db");
 
 
-const getEPI = (_, res) => {
-    const q = "SELECT * FROM EPI";
+const getEPI = (req, res) => {
+  id = req.params.id
 
-    db.query(q, (err, data) => {
-        if(err) return res.json(err);
-        return res.status(200).json(data)
-    })
+  const q = `
+    SELECT 
+    machine.Machine_code,
+    shed.Shed_Name,
+    stock.Quantity
+    FROM stock
+    INNER JOIN machine ON machine.ID = stock.Machine_ID
+    INNER JOIN shed on shed.ID = machine.Shed_ID
+    where stock.EPI_ID = (?);
+    `;
+
+  db.query(q, [id], (err, data) => {
+    if (err) return res.json(err);
+    return res.status(200).json(data)
+  })
+}
+
+const getAllEPI = (req, res) => {
+  id = req.params.id
+
+  const q = `
+  SELECT * FROM EPI
+    `;
+
+  db.query(q, [id], (err, data) => {
+    if (err) return res.json(err);
+    return res.status(200).json(data)
+  })
 }
 
 const addEPI = (req, res) => {
-    const q =
-      "INSERT INTO EPI(`EPI_Name`, `Days_time`) VALUES(?)";
-  
-    const values = [
-      req.body.nome,
-      req.body.prazo
-    ];
-  
-    db.query(q, [values], (err) => {
-      if (err) return res.json(err);
-  
-      return res.status(200).json("EPI inserido com sucesso.");
-    });
-  };
+  const q =
+    "INSERT INTO EPI(`EPI_Name`, `Days_time`) VALUES(?)";
+
+  const values = [
+    req.body.nome,
+    req.body.prazo
+  ];
+
+  db.query(q, [values], (err) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json("EPI inserido com sucesso.");
+  });
+};
 
 const deleteEPI = (req, res) => {
-    const q =
-      "DELETE FROM EPI WHERE ID = (?)";
-  
-    const values = [
-      req.body.ID
-    ];
-  
-    db.query(q, [values], (err) => {
-      if (err) return res.json(err);
-  
-      return res.status(200).json("EPI deletado com sucesso.");
-    });
-  };
+  const q =
+    "DELETE FROM EPI WHERE ID = (?)";
+
+  const values = [
+    req.body.ID
+  ];
+
+  db.query(q, [values], (err) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json("EPI deletado com sucesso.");
+  });
+};
 
 
 module.exports = [getEPI, addEPI, deleteEPI]

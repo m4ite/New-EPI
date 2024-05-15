@@ -16,6 +16,7 @@ const getMachine = (_, res) => {
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
+        console.log(data)
         return res.status(200).json(data)
     })
 }
