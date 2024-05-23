@@ -1,9 +1,9 @@
 .rec {
-    width: 40%;
+    width: 55%;
     margin: 0 auto;
     position: relative;
     top: 50%;
-    transform: translateY(50%);
+    transform: translateY(20%);
 
 }
 .pages {

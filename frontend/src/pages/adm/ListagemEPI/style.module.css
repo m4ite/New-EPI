@@ -1,6 +1,7 @@
 .rec {
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .pages {

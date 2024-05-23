@@ -56,8 +56,8 @@
 
 .mapa{
   background-image: url("./map.png");
-  width: 900px;
-  height: 604.6px;
+  width: 50vw;
+  height: 60vh;
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
