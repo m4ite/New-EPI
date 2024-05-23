@@ -76,7 +76,7 @@ function HistoricoSolicitacoes() {
             <div className={styles.rec}>
                 <Button className={styles.filter} onClick={handleOpen}><FontAwesomeIcon icon={faFilter} /></Button>
                
-                        <Table data={data} hover={true} rowHeight={60} height={400}>
+                        <Table data={data} hover={true} rowHeight={60} height={350}>
                             <Column width={150} >
                                 <HeaderCell style={styleHeader}>Data</HeaderCell>
                                 <Cell dataKey="data" />
